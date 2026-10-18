@@ -352,7 +352,87 @@ const pages={
 'Transactions':'<div class="panel"><div class="portal-panelhead"><div><h4>Transaction history</h4><p class="muted">Sample entries, not actual financial activity.</p></div><span class="portal-chip">DEMO</span></div><div class="dashrow"><span><b>Sample deposit</b><small class="row-sub">Reference: DEMO-DEP-001</small></span><b>+ MWK 25,000</b></div><div class="dashrow"><span><b>Sample loan repayment</b><small class="row-sub">Reference: DEMO-PAY-001</small></span><b>− MWK 105,000</b></div><div class="dashrow"><span><b>Transaction status</b><small class="row-sub">Live payment verification unavailable</small></span><span class="status pending">Not verified</span></div><div class="portal-notice"><b>Report a discrepancy</b><p>In a live portal, customers should be able to report an incorrect transaction using its reference number, date and amount.</p></div><button class="btn primary" onclick="page(\'Support\')">Ask support about a transaction</button></div>',
 'Support':'<div class="panel"><h4>Customer support</h4><p>Get help understanding applications, documents, repayment schedules or the customer portal.</p><div class="portal-shortcuts"><button class="portal-action" onclick="chatToggle(true)"><b>☏ Open support chat</b><small>Website demo assistant</small></button><button class="portal-action" onclick="closeModal(\'login\');document.getElementById(\'contact\').scrollIntoView({behavior:\'smooth\'})"><b>✉ Contact EMF</b><small>Open the website contact section</small></button></div><div class="portal-notice"><b>When asking for help</b><p>Include the application or transaction reference when available, but never send your password, PIN or one-time security code.</p></div></div>'};
 function page(name){$('pagetitle').textContent=name;$('dashcontent').innerHTML=pages[name]||pages.Overview;document.querySelectorAll('[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===name))}
-document.querySelectorAll('[data-page]').forEach(b=>b.onclick=()=>page(b.dataset.page));$('loginform').onsubmit=e=>{e.preventDefault();$('loginformview').classList.add('hidden');$('dash').classList.add('show');$('pagetitle').textContent='Welcome back, '+($('identity').value.split('@')[0]||'Customer')+'!';page('Overview');notify('Demo portal opened. No account was authenticated.')};function logout(){$('loginformview').classList.remove('hidden');$('dash').classList.remove('show');closeModal('login');notify('Demo session closed')}
+
+document.querySelectorAll('[data-page]').forEach(b => {
+  b.onclick = () => page(b.dataset.page);
+});
+
+$('loginform').onsubmit = async e => {
+  e.preventDefault();
+
+  const email = $('identity').value.trim();
+  const passwordField = $('loginform').querySelector(
+    'input[type="password"]'
+  );
+  const password = passwordField ? passwordField.value : '';
+
+  if (!email || !password) {
+    notify('Enter your email and password.');
+    return;
+  }
+
+  const submitButton = $('loginform').querySelector(
+    'button[type="submit"], input[type="submit"]'
+  );
+
+  if (submitButton) submitButton.disabled = true;
+
+  try {
+    const response = await fetch(
+      EMF_API_BASE + '/api/auth/login',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email, password })
+      }
+    );
+
+    const result = await response.json();
+
+    if (!response.ok || !result.access_token) {
+      throw new Error(
+        result.message || 'Login failed. Check your email and password.'
+      );
+    }
+
+    emfAccessToken = result.access_token;
+    emfCustomer = result.customer || null;
+
+    $('loginformview').classList.add('hidden');
+    $('dash').classList.add('show');
+
+    const customerName =
+      emfCustomer?.full_name || email.split('@')[0] || 'Customer';
+
+    $('pagetitle').textContent = 'Welcome back, ' + customerName + '!';
+
+    page('Overview');
+
+    notify('Login successful.');
+  } catch (error) {
+    console.error('EMF login error:', error);
+    notify(error.message || 'Unable to connect to EMF. Please try again.');
+  } finally {
+    if (submitButton) submitButton.disabled = false;
+  }
+};
+  
+
+function logout() {
+  emfAccessToken = '';
+  emfCustomer = null;
+
+  $('loginformview').classList.remove('hidden');
+  $('dash').classList.remove('show');
+
+  $('loginform').reset();
+
+  closeModal('login');
+  notify('You have been logged out.');
+}
+
 document.querySelectorAll('.faq button').forEach(b=>b.onclick=()=>b.parentElement.classList.toggle('open'));
 const blogs=[
 ['FINANCIAL LITERACY','Small steps today can strengthen your financial future','Start by setting a clear, realistic money goal. Write down your income and regular expenses, separate needs from wants, and review your budget often. Small, consistent steps can help you make more informed financial decisions.'],
