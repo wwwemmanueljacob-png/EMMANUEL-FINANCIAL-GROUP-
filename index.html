@@ -318,6 +318,10 @@ $('menu').onclick=()=>$('links').classList.toggle('open');document.querySelector
    empty until the real project/schema and security policies are ready.
 */
 const EMF_BACKEND = Object.freeze({ provider: 'supabase', projectUrl: '', publishableKey: '', enabled: false });
+const EMF_API_BASE = 'https://emmanuel-financial-group-backend-production-d168.up.railway.app';
+let emfAccessToken = '';
+let emfCustomer = null;
+
 const EMF_DATA_CONTRACT = Object.freeze({
   auth: ['signUp','signInWithPassword','resetPasswordForEmail','signOut'],
   customerTables: ['profiles','loan_applications','loans','loan_payments','transactions','savings_accounts','support_tickets','support_messages','notifications','site_content','site_settings'],
