@@ -340,7 +340,98 @@ let step=0,appsteps=[...document.querySelectorAll('.appstep')];function updateSt
 function move(delta){if(delta>0){for(let f of appsteps[step].querySelectorAll('input,select,textarea'))if(f.required&&!f.checkValidity()){f.reportValidity();return}}step=Math.max(0,Math.min(appsteps.length-1,step+delta));updateStep()}
 $('applicantType').onchange=e=>{if(e.target.value==='Business')$('appProduct').value='Business Loan';else if($('appProduct').value==='Business Loan')$('appProduct').value='Personal Loan'};
 $('application').onsubmit=e=>{e.preventDefault();const reference='EMF-DEMO-'+new Date().getFullYear()+'-'+Math.random().toString(36).slice(2,8).toUpperCase();notify('Demo application check passed. Reference '+reference+'. Nothing was transmitted or stored.');const note=document.createElement('p');note.className='note';note.textContent='Demo reference: '+reference+'. This is not a submitted application. Your details and selected files were not sent to EMF.';const body=$('application').querySelector('.modalbody');if(body){const old=body.querySelector('.submission-result');if(old)old.remove();note.classList.add('submission-result');body.prepend(note)}e.target.reset();step=0;updateStep();};
-const sigCanvas=$('signaturePad'),sigCtx=sigCanvas.getContext('2d');function resizeSignaturePad(){const r=sigCanvas.getBoundingClientRect(),ratio=window.devicePixelRatio||1;sigCanvas.width=Math.max(1,Math.round(r.width*ratio));sigCanvas.height=Math.max(1,Math.round(r.height*ratio));sigCtx.setTransform(ratio,0,0,ratio,0,0);sigCtx.strokeStyle='#06152f';sigCtx.lineWidth=2.2;sigCtx.lineCap='round';sigCtx.lineJoin='round'}function clearSignature(){sigCtx.clearRect(0,0,sigCanvas.width,sigCanvas.height);signatureDrawn=false}window.addEventListener('resize',()=>{const old=signatureDrawn?sigCanvas.toDataURL():null;resizeSignaturePad();if(old){const im=new Image();im.onload=()=>sigCtx.drawImage(im,0,0,sigCanvas.clientWidth,sigCanvas.clientHeight);im.src=old}});resizeSignaturePad();let drawing=false;function sigPoint(e){const r=sigCanvas.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top}}sigCanvas.addEventListener('pointerdown',e=>{drawing=true;sigCanvas.setPointerCapture(e.pointerId);const p=sigPoint(e);sigCtx.beginPath();sigCtx.moveTo(p.x,p.y);signatureDrawn=true;e.preventDefault()});sigCanvas.addEventListener('pointermove',e=>{if(!drawing)return;const p=sigPoint(e);sigCtx.lineTo(p.x,p.y);sigCtx.stroke();e.preventDefault()});['pointerup','pointercancel','lostpointercapture'].forEach(ev=>sigCanvas.addEventListener(ev,()=>drawing=false));$('clearSignature').onclick=clearSignature;$('agreeContinue').onclick=()=>{if(!$('agreementFullName').value.trim()){ $('agreementFullName').reportValidity();return}if(!signatureDrawn){notify('Please draw your handwritten signature in the signature pad.');return}if(!$('acceptTerms').checked||!$('acceptPrivacy').checked||!$('confirmSignature').checked){notify('Please tick all required agreement boxes.');return}demoConsentRecord={terms_version:'EMF-LOAN-TERMS-DRAFT-1.0',accepted_at:new Date().toISOString(),full_name:$('agreementFullName').value.trim(),signature_image:sigCanvas.toDataURL('image/png'),terms_accepted:true,privacy_acknowledged:true};closeModal('register');openModal('account')};$('accountform').onsubmit=e=>{e.preventDefault();if(!$('accountform').reportValidity())return;const agreementName=$('agreementFullName').value.trim(),accountName=$('regFullName').value.trim();if(agreementName.toLocaleLowerCase()!==accountName.toLocaleLowerCase()){notify('Please use the same full legal name as the one signed in the agreement.');$('regFullName').focus();return}demoAccountCreated=true;demoConsentRecord={...demoConsentRecord,account_full_name:accountName,email:$('regEmail').value.trim(),phone:$('regPhone').value.trim(),account_created_at:new Date().toISOString()};closeModal('account');openModal('productselector')};function startLoanApplication(name){if(!demoAccountCreated){notify('Create your account first.');return}closeModal('productselector');$('appProduct').value=name;$('loanType').value=name;$('applicantType').value=name==='Business Loan'?'Business':'Individual / Personal';calc();step=0;updateStep();openModal('apply')}
+const sigCanvas=$('signaturePad'),sigCtx=sigCanvas.getContext('2d');function resizeSignaturePad(){const r=sigCanvas.getBoundingClientRect(),ratio=window.devicePixelRatio||1;sigCanvas.width=Math.max(1,Math.round(r.width*ratio));sigCanvas.height=Math.max(1,Math.round(r.height*ratio));sigCtx.setTransform(ratio,0,0,ratio,0,0);sigCtx.strokeStyle='#06152f';sigCtx.lineWidth=2.2;sigCtx.lineCap='round';sigCtx.lineJoin='round'}function clearSignature(){sigCtx.clearRect(0,0,sigCanvas.width,sigCanvas.height);signatureDrawn=false}window.addEventListener('resize',()=>{const old=signatureDrawn?sigCanvas.toDataURL():null;resizeSignaturePad();if(old){const im=new Image();im.onload=()=>sigCtx.drawImage(im,0,0,sigCanvas.clientWidth,sigCanvas.clientHeight);im.src=old}});resizeSignaturePad();let drawing=false;function sigPoint(e){const r=sigCanvas.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top}}sigCanvas.addEventListener('pointerdown',e=>{drawing=true;sigCanvas.setPointerCapture(e.pointerId);const p=sigPoint(e);sigCtx.beginPath();sigCtx.moveTo(p.x,p.y);signatureDrawn=true;e.preventDefault()});sigCanvas.addEventListener('pointermove',e=>{if(!drawing)return;const p=sigPoint(e);sigCtx.lineTo(p.x,p.y);sigCtx.stroke();e.preventDefault()});['pointerup','pointercancel','lostpointercapture'].forEach(ev=>sigCanvas.addEventListener(ev,()=>drawing=false));$('clearSignature').onclick=clearSignature;$('agreeContinue').onclick=()=>{if(!$('agreementFullName').value.trim()){ $('agreementFullName').reportValidity();return}if(!signatureDrawn){notify('Please draw your handwritten signature in the signature pad.');return}if(!$('acceptTerms').checked||!$('acceptPrivacy').checked||!$('confirmSignature').checked){notify('Please tick all required agreement boxes.');return}demoConsentRecord={terms_version:'EMF-LOAN-TERMS-DRAFT-1.0',accepted_at:new Date().toISOString(),full_name:$('agreementFullName').value.trim(),signature_image:sigCanvas.toDataURL('image/png'),terms_accepted:true,privacy_acknowledged:true};closeModal('register');openModal('account')};
+$('accountform').onsubmit = async e => {
+  e.preventDefault();
+
+  const form = $('accountform');
+
+  if (!form.reportValidity()) return;
+
+  const agreementName = $('agreementFullName').value.trim();
+  const accountName = $('regFullName').value.trim();
+  const email = $('regEmail').value.trim().toLowerCase();
+  const phone = $('regPhone').value.trim();
+
+  const passwordField = form.querySelector('input[type="password"]');
+  const password = passwordField ? passwordField.value : '';
+
+  if (agreementName.toLocaleLowerCase() !== accountName.toLocaleLowerCase()) {
+    notify('Please use the same full legal name as the one signed in the agreement.');
+    $('regFullName').focus();
+    return;
+  }
+
+  if (!password) {
+    notify('Please enter your account password.');
+    if (passwordField) passwordField.focus();
+    return;
+  }
+
+  const submitButton = form.querySelector(
+    'button[type="submit"], input[type="submit"]'
+  );
+
+  if (submitButton) submitButton.disabled = true;
+
+  try {
+    const response = await fetch(EMF_API_BASE + '/api/auth/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        full_name: accountName,
+        email: email,
+        phone: phone,
+        password: password
+      })
+    });
+
+    const result = await response.json();
+
+    if (!response.ok || !result.success) {
+      throw new Error(result.message || 'Registration failed. Please try again.');
+    }
+
+    demoAccountCreated = true;
+
+    demoConsentRecord = {
+      ...demoConsentRecord,
+      account_full_name: accountName,
+      email: email,
+      phone: phone,
+      account_created_at: new Date().toISOString()
+    };
+
+    closeModal('account');
+
+    if (result.requiresEmailVerification) {
+      notify(
+        result.message ||
+        'Registration successful. Check your email to verify your account before logging in.'
+      );
+      openModal('login');
+    } else {
+      notify('Your account was registered successfully.');
+      openModal('login');
+    }
+
+    form.reset();
+
+  } catch (error) {
+    console.error('EMF registration error:', error);
+
+    notify(
+      error.message ||
+      'Unable to connect to EMF. Please check your internet connection and try again.'
+    );
+
+  } finally {
+    if (submitButton) submitButton.disabled = false;
+  }
+};
+function startLoanApplication(name){if(!demoAccountCreated){notify('Create your account first.');return}closeModal('productselector');$('appProduct').value=name;$('loanType').value=name;$('applicantType').value=name==='Business Loan'?'Business':'Individual / Personal';calc();step=0;updateStep();openModal('apply')}
 $('appAmount').oninput=e=>{if(e.target.value)$('amount').value=e.target.value};
 const pages={
 'Overview':'<div class="portal-welcome"><div><span class="portal-kicker">CUSTOMER OVERVIEW</span><h3>Your financial journey, at a glance</h3><p>Review your sample account information and use the shortcuts below. Live account data is not connected in this demo.</p></div><span class="portal-chip">DEMO PORTAL</span></div><div class="dashmetrics"><div class="metric"><small>Outstanding loan balance</small><b>MWK 1,200,000</b><span class="metric-note">Illustrative sample</span></div><div class="metric"><small>Savings balance</small><b>MWK 150,000</b><span class="metric-note">Illustrative sample</span></div><div class="metric"><small>Next repayment</small><b>MWK 105,000</b><span class="metric-note">Example only · no payment due</span></div></div><div class="portal-shortcuts"><button class="portal-action" onclick="closeModal(\'login\');openModal(\'apply\')"><b>＋ Apply for a loan</b><small>Start a guided application</small></button><button class="portal-action" onclick="page(\'My Applications\')"><b>▤ Track application</b><small>Review example application progress</small></button><button class="portal-action" onclick="page(\'Repayments\')"><b>◷ Repayment schedule</b><small>See illustrative instalments</small></button><button class="portal-action" onclick="page(\'Support\')"><b>☏ Get support</b><small>Ask a question or find help</small></button></div><div class="panel"><div class="portal-panelhead"><h4>Recent activity</h4><span class="portal-chip">SAMPLE RECORDS</span></div><div class="dashrow"><span><b>Loan application received</b><small class="row-sub">Example · 12 Oct 2026</small></span><span class="status pending">Under review</span></div><div class="dashrow"><span><b>Savings deposit</b><small class="row-sub">Example transaction</small></span><b>+ MWK 25,000</b></div><div class="dashrow"><span><b>Loan repayment</b><small class="row-sub">Example transaction</small></span><b>− MWK 105,000</b></div><p class="legal">All amounts, dates and activity on this demo page are illustrative and are not your real account records.</p></div>',
