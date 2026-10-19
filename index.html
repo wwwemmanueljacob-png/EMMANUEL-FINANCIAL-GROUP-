@@ -634,6 +634,450 @@
             min-width: 0;
         }
 
+        .formhint {
+            font-size: .78rem;
+            color: #64778b;
+            margin: 4px 0 12px;
+        }
+
+        .field input:focus,
+        .field select:focus,
+        .field textarea:focus {
+            outline: 2px solid #1bc7da55;
+            border-color: #1bbbd0;
+        }
+
+        .calcform > .btn {
+            width: 100%;
+        }
+
+        .total {
+            background: linear-gradient(110deg, #0b83b5, #15d1df);
+            color: #04203c;
+            padding: 16px;
+            border-radius: 13px;
+        }
+
+        .total span {
+            font-size: .78rem;
+            font-weight: 800;
+        }
+
+        .total strong {
+            display: block;
+            font-size: 1.8rem;
+        }
+
+        .tiles {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 14px 0;
+        }
+
+        .tile {
+            padding: 12px;
+            border-radius: 12px;
+            background: #102e51;
+            border: 1px solid #ffffff18;
+        }
+
+        .tile small {
+            display: block;
+            color: #b6cee4;
+        }
+
+        .tile b {
+            display: block;
+            margin-top: 4px;
+        }
+
+        .tablewrap {
+            overflow: auto;
+        }
+
+        .tablewrap table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 450px;
+            font-size: .76rem;
+        }
+
+        .tablewrap th,
+        .tablewrap td {
+            text-align: left;
+            padding: 9px 7px;
+            border-bottom: 1px solid #ffffff1e;
+        }
+
+        .tablewrap th {
+            color: #9eeef5;
+        }
+
+        .tablewrap td {
+            color: #e4f0f9;
+        }
+
+        .tablewrap tfoot {
+            font-weight: 900;
+        }
+
+
+        /* =========================================================
+           SECTION 09 — PROCESS STEPS
+        ========================================================= */
+
+        .steps {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .step {
+            padding: 20px;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+        }
+
+        .stepnum {
+            background: #e0f9fc;
+            color: #057da3;
+            border-radius: 10px;
+            width: 37px;
+            height: 37px;
+            display: grid;
+            place-items: center;
+            font-weight: 900;
+            margin-bottom: 12px;
+        }
+
+        .step h3 {
+            margin: 0 0 7px;
+            color: var(--n);
+            font-size: 1rem;
+        }
+
+        .step p {
+            margin: 0;
+            color: var(--mut);
+            font-size: .86rem;
+        }
+
+
+        /* =========================================================
+           SECTION 10 — BLOG AND FINANCIAL UPDATES
+        ========================================================= */
+
+        .bloglayout {
+            display: grid;
+            grid-template-columns: 1.5fr .9fr;
+            gap: 18px;
+        }
+
+        .featureblog {
+            border-radius: 20px;
+            min-height: 330px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 80% 15%, #25d5d7, transparent 25%),
+                linear-gradient(130deg, #06152f, #0a4771 75%, #098a9a);
+        }
+
+        .featureblog:before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(0deg, #031127e8, transparent 75%),
+                repeating-linear-gradient(
+                    130deg,
+                    transparent 0 30px,
+                    #ffffff09 31px 32px
+                );
+        }
+
+        .featureblog > * {
+            position: relative;
+        }
+
+        .featureblog h3 {
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
+            line-height: 1.12;
+            margin: 13px 0;
+        }
+
+        .featureblog p {
+            color: #d7edf8;
+            max-width: 520px;
+        }
+
+        .featureblog .tag {
+            background: #b7f7fa;
+            color: #06344d;
+        }
+
+        .blogcontrols {
+            display: flex;
+            gap: 8px;
+        }
+
+        .blogcontrols button {
+            background: #ffffff16;
+            border: 1px solid #ffffff55;
+            border-radius: 9px;
+            color: white;
+            padding: 9px 12px;
+        }
+
+        .blogside {
+            display: grid;
+            gap: 12px;
+        }
+
+        .blogmini {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 13px;
+        }
+
+        .thumb {
+            width: 66px;
+            height: 66px;
+            flex: none;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #e0faff, #0a8db4);
+            display: grid;
+            place-items: center;
+            font-size: 1.6rem;
+        }
+
+        .blogminODUCT CARDS
+        ========================================================= */
+
+        .services {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .card,
+        .product {
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            background: white;
+            padding: 22px;
+            transition: .2s;
+        }
+
+        .card:hover,
+        .product:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 38px #06152f16;
+            border-color: #a3eaf0;
+        }
+
+        .ico {
+            width: 52px;
+            height: 52px;
+            display: grid;
+            place-items: center;
+            border-radius: 15px;
+            background: #e2f9fc;
+            color: #057ca3;
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+
+        .card h3,
+        .product h3 {
+            margin: 0 0 7px;
+            color: var(--n);
+        }
+
+        .card p,
+        .product p {
+            color: var(--mut);
+            font-size: .9rem;
+            margin: 0 0 15px;
+        }
+
+        .textlink {
+            color: #087eaa;
+            font-weight: 800;
+            font-size: .88rem;
+        }
+
+        .products {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .product {
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .ptop {
+            padding: 22px;
+            background: linear-gradient(135deg, #eafaff, #f8fbff);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 5px 9px;
+            border-radius: 30px;
+            background: #d7f8fc;
+            color: #086687;
+            font-size: .7rem;
+            font-weight: 900;
+        }
+
+        .pbody {
+            padding: 20px;
+        }
+
+        .pbody ul {
+            padding-left: 18px;
+            color: var(--mut);
+            font-size: .86rem;
+        }
+
+        .pbody li {
+            margin: 6px 0;
+        }
+
+        .pbody .btn {
+            width: 100%;
+        }
+
+
+        /* =========================================================
+           SECTION 08 — LOAN CALCULATOR
+        ========================================================= */
+
+        .calculator {
+            background: linear-gradient(135deg, #f0f9ff, #e9f8fb);
+        }
+
+        .calcbox {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            border: 1px solid #d5e7f1;
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 15px 45px #06152f12;
+            background: white;
+        }
+
+        .calcform,
+        .results {
+            padding: 28px;
+        }
+
+        .results {
+            background: var(--n);
+            color: white;
+        }
+
+        .calcform h3,
+        .results h3 {
+            margin: 0 0 6px;
+        }
+
+        .muted {
+            color: var(--mut);
+            font-size: .85rem;
+            margin: 0 0 18px;
+        }
+
+        .results .muted {
+            color: #b9d0e5;
+        }
+
+        .fields {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 13px;
+            min-width: 0;
+        }
+
+        .field label {
+            font-size: .8rem;
+            font-weight: 800;
+            color: #314c66;
+        }
+
+        .field input,
+        .field select,
+        .field textarea {
+            border: 1px solid #cbdce8;
+            border-radius: 10px;
+            padding: 11px;
+            background: #fbfdff;
+            min-width: 0;
+            width: 100%;
+            color: var(--ink);
+        }
+
+        .field textarea {
+            min-height: 90px;
+        }
+
+        .termsbox {
+            max-height: 230px;
+            overflow: auto;
+            border: 1px solid #cbdce8;
+            background: #f8fcff;
+            border-radius: 12px;
+            padding: 16px;
+            font-size: .88rem;
+            color: #334e68;
+            margin: 12px 0;
+        }
+
+        .termsbox h4 {
+            color: #06152f;
+            margin: 14px 0 4px;
+        }
+
+        .consentrow {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            margin: 12px 0;
+            font-size: .88rem;
+        }
+
+        .consentrow input {
+            margin-top: 5px;
+            flex: none;
+        }
+
+        .signature {
+            font-family: cursive;
+            font-size: 1.1rem;
+        }
+
+        .signature-fields {
+            align-items: start;
+        }
+
+        .signature-fields .field {
+            min-width: 0;
+        }
+
         .signature-fields canvas {
             max-width: 100%;
         }
