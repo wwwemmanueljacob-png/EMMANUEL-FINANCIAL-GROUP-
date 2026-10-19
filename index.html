@@ -7936,11 +7936,12 @@ function notify(s) {
 }
 
 
+
 <!-- =========================================================
-     SECTION 115: DEMO ACCOUNT AND AGREEMENT STATE
+     SECTION 115: CUSTOMER ACCOUNT AND AGREEMENT STATE
 ========================================================= -->
 
-let demoAccountCreated = false,
+let emfAccountReady = false,
     demoConsentRecord = null,
     signatureDrawn = false;
 
@@ -7951,7 +7952,7 @@ let demoAccountCreated = false,
 
 function openModal(id) {
 
-    if (id === 'apply' && !demoAccountCreated) {
+    if (id === 'apply' && !emfAccountReady) {
         id = 'register';
 
         notify(
@@ -7959,7 +7960,7 @@ function openModal(id) {
         );
     }
 
-    if (id === 'productselector' && !demoAccountCreated) {
+    if (id === 'productselector' && !emfAccountReady) {
         id = 'register';
 
         notify(
@@ -8872,61 +8873,134 @@ $('appAmount').oninput = e => {
 };
 
 
+
 /* =========================================================
    SECTION 144: CUSTOMER DASHBOARD PAGE CONTENT
-   NOTE: These pages currently contain illustrative demo data.
+   Live data will be loaded from the EMF backend.
 ========================================================= */
+
+function emfUnavailablePage(title, message) {
+
+    return `
+        <div class="panel">
+
+            <div class="portal-panelhead">
+                <div>
+                    <h4>${title}</h4>
+                    <p class="muted">
+                        Your EMF customer portal
+                    </p>
+                </div>
+
+                <span class="portal-chip">
+                    LIVE DATA PENDING
+                </span>
+            </div>
+
+            <div class="portal-notice">
+                <b>Customer information is not available yet</b>
+
+                <p>${message}</p>
+
+                <p>
+                    No sample balances, transactions,
+                    applications or payment amounts are displayed.
+                </p>
+            </div>
+
+        </div>
+    `;
+}
+
 
 const pages = {
 
-    /* -----------------------------------------------------
-       SECTION 144.1: OVERVIEW PAGE
-    ----------------------------------------------------- */
+    /* SECTION 144.1: OVERVIEW */
 
-    'Overview': '<div class="portal-welcome"><div><span class="portal-kicker">CUSTOMER OVERVIEW</span><h3>Your financial journey, at a glance</h3><p>Review your sample account information and use the shortcuts below. Live account data is not connected in this demo.</p></div><span class="portal-chip">DEMO PORTAL</span></div><div class="dashmetrics"><div class="metric"><small>Outstanding loan balance</small><b>MWK 1,200,000</b><span class="metric-note">Illustrative sample</span></div><div class="metric"><small>Savings balance</small><b>MWK 150,000</b><span class="metric-note">Illustrative sample</span></div><div class="metric"><small>Next repayment</small><b>MWK 105,000</b><span class="metric-note">Example only · no payment due</span></div></div><div class="portal-shortcuts"><button class="portal-action" onclick="closeModal(\'login\');openModal(\'apply\')"><b>＋ Apply for a loan</b><small>Start a guided application</small></button><button class="portal-action" onclick="page(\'My Applications\')"><b>▤ Track application</b><small>Review example application progress</small></button><button class="portal-action" onclick="page(\'Repayments\')"><b>◷ Repayment schedule</b><small>See illustrative instalments</small></button><button class="portal-action" onclick="page(\'Support\')"><b>☏ Get support</b><small>Ask a question or find help</small></button></div><div class="panel"><div class="portal-panelhead"><h4>Recent activity</h4><span class="portal-chip">SAMPLE RECORDS</span></div><div class="dashrow"><span><b>Loan application received</b><small class="row-sub">Example · 12 Oct 2026</small></span><span class="status pending">Under review</span></div><div class="dashrow"><span><b>Savings deposit</b><small class="row-sub">Example transaction</small></span><b>+ MWK 25,000</b></div><div class="dashrow"><span><b>Loan repayment</b><small class="row-sub">Example transaction</small></span><b>− MWK 105,000</b></div><p class="legal">All amounts, dates and activity on this demo page are illustrative and are not your real account records.</p></div>',
+    'Overview': emfUnavailablePage(
+        'Account Overview',
+        'Your account summary will appear here once the authenticated customer-data endpoint is connected.'
+    ),
 
-    /* -----------------------------------------------------
-       SECTION 144.2: MY PROFILE PAGE
-    ----------------------------------------------------- */
+    /* SECTION 144.2: MY PROFILE */
 
-    'My Profile': '<div class="panel"><div class="portal-panelhead"><div><h4>My personal profile</h4><p class="muted">Review the information that may be used for account support and application processing.</p></div><span class="status pending">Demo profile</span></div><div class="profile-grid"><div class="field"><label>Full legal name</label><input value="Demo Customer" readonly></div><div class="field"><label>Email address</label><input value="demo@example.com" readonly></div><div class="field"><label>Phone number</label><input value="Not connected" readonly></div><div class="field"><label>Residential address</label><input value="Not provided in demo" readonly></div><div class="field"><label>Employment / business</label><input value="Not provided in demo" readonly></div><div class="field"><label>Next of kin</label><input value="Not provided in demo" readonly></div></div><div class="portal-notice"><b>Identity verification (KYC)</b><p>When the secure service is connected, this area should show requested identity documents, verification status and any corrections needed. Do not upload real identity documents into this demo.</p><span class="status pending">Not verified · sample</span></div><button class="btn primary" onclick="notify(\'Profile editing will be enabled after secure account integration. This demo does not save changes.\')">Request profile update</button></div>',
+    'My Profile': emfUnavailablePage(
+        'My Profile',
+        'Your verified profile details will appear here after the customer profile endpoint is connected.'
+    ),
 
-    /* -----------------------------------------------------
-       SECTION 144.3: MY APPLICATIONS PAGE
-    ----------------------------------------------------- */
+    /* SECTION 144.3: MY APPLICATIONS */
 
-    'My Applications': '<div class="panel"><div class="portal-panelhead"><div><h4>My loan applications</h4><p class="muted">Follow each stage and check whether further information is needed.</p></div><button class="btn primary" onclick="closeModal(\'login\');openModal(\'apply\')">＋ New application</button></div><div class="application-card"><div class="application-top"><div><span class="portal-kicker">APPLICATION REF.</span><h4>EMF-DEMO-2026-001</h4><p class="muted">Personal Loan · Example record</p></div><span class="status pending">Under review</span></div><div class="application-track"><div class="track-step complete"><i>✓</i><b>Submitted</b><small>Received</small></div><div class="track-step active"><i>2</i><b>Under review</b><small>Sample current stage</small></div><div class="track-step"><i>3</i><b>Decision</b><small>Awaiting assessment</small></div><div class="track-step"><i>4</i><b>Outcome</b><small>Not yet available</small></div></div><div class="dashrow"><span>Documents</span><b>Sample · review pending</b></div><div class="dashrow"><span>Last update</span><b>12 Oct 2026 · Example</b></div><p class="legal">This is a demonstration application, not a real submission or loan decision. A live version should display updates received from EMF securely.</p></div><div class="portal-notice"><b>Before submitting</b><p>Check that your details are accurate and that required documents are clear and current. Submitting an application does not guarantee approval.</p><a class="textlink" href="#blog" onclick="closeModal(\'login\')">Read application guidance ↗</a></div></div>',
+    'My Applications': emfUnavailablePage(
+        'My Loan Applications',
+        'Your actual loan applications and their current statuses will appear here when the application endpoint is connected.'
+    ),
 
-    /* -----------------------------------------------------
-       SECTION 144.4: MY LOANS PAGE
-    ----------------------------------------------------- */
+    /* SECTION 144.4: MY LOANS */
 
-    'My Loans': '<div class="panel"><div class="portal-panelhead"><div><h4>My loan details</h4><p class="muted">Example summary of a loan account.</p></div><span class="status">Sample active</span></div><div class="loan-summary"><small>Illustrative outstanding balance</small><strong>MWK 1,200,000</strong><span>Not a real balance or payment demand</span></div><div class="dashrow"><span>Original principal</span><b>MWK 1,000,000</b></div><div class="dashrow"><span>Interest and fees</span><b>Refer to a real offer</b></div><div class="dashrow"><span>Loan term</span><b>Example schedule only</b></div><div class="dashrow"><span>Next instalment</span><b>MWK 105,000 · sample</b></div><div class="dashrow"><span>Loan agreement</span><button class="btn light" onclick="notify(\'Downloadable agreements will be available when real loan records are connected.\')">View availability</button></div><div class="portal-notice"><b>Understand your loan</b><p>A live loan page should show the amount disbursed, interest calculation, applicable fees, payments received, remaining balance, due dates and a copy of the accepted agreement.</p></div><button class="btn primary" onclick="page(\'Repayments\')">View repayment schedule</button></div>',
+    'My Loans': emfUnavailablePage(
+        'My Loans',
+        'Your actual loan accounts, approved amounts and outstanding balances will appear here when the loan endpoint is connected.'
+    ),
 
-    /* -----------------------------------------------------
-       SECTION 144.5: REPAYMENTS PAGE
-    ----------------------------------------------------- */
+    /* SECTION 144.5: REPAYMENTS */
 
-    'Repayments': '<div class="panel"><div class="portal-panelhead"><div><h4>Repayment schedule</h4><p class="muted">Example instalments only. No payment is due based on this demonstration.</p></div><span class="portal-chip">SAMPLE</span></div><div class="dashrow"><span><b>Next instalment</b><small class="row-sub">Example date · 30 days from a sample start</small></span><b>MWK 105,000</b></div><div class="dashrow"><span><b>Following instalment</b><small class="row-sub">Illustrative schedule</small></span><b>MWK 105,000</b></div><div class="dashrow"><span><b>Payment history</b><small class="row-sub">No real payment records connected</small></span><span class="status pending">Demo only</span></div><div class="portal-notice"><b>Pay safely</b><p>Before making a payment, confirm the official payment channel, account/reference details and amount with EMF. Keep your transaction ID and receipt. A screenshot alone does not confirm a payment has been received.</p></div><button class="btn primary" onclick="notify(\'Payment processing is not enabled in this demo. Please use only official EMF payment instructions.\')">Payment instructions</button></div>',
+    'Repayments': emfUnavailablePage(
+        'Repayments',
+        'Your verified repayment schedule and payment history will appear here when the repayment endpoint is connected.'
+    ),
 
-    /* -----------------------------------------------------
-       SECTION 144.6: SAVINGS PAGE
-    ----------------------------------------------------- */
+    /* SECTION 144.6: SAVINGS */
 
-    'Savings': '<div class="panel"><div class="portal-panelhead"><div><h4>Savings overview</h4><p class="muted">Illustrative savings information.</p></div><span class="portal-chip">DEMO</span></div><div class="dashmetrics"><div class="metric"><small>Available balance</small><b>MWK 150,000</b><span class="metric-note">Sample only</span></div><div class="metric"><small>Last deposit</small><b>MWK 25,000</b><span class="metric-note">Sample only</span></div></div><div class="portal-notice"><b>Savings tools planned</b><p>A connected savings module can show verified deposits, withdrawals, interest (if applicable), savings goals and request status. No deposits or withdrawals can be initiated from this demo.</p></div><button class="btn primary" onclick="notify(\'Savings requests are not enabled in this demo.\')">Explore savings options</button></div>',
+    'Savings': emfUnavailablePage(
+        'Savings',
+        'Your actual savings balance and activity will appear here when the savings endpoints are connected.'
+    ),
 
-    /* -----------------------------------------------------
-       SECTION 144.7: TRANSACTIONS PAGE
-    ----------------------------------------------------- */
+    /* SECTION 144.7: TRANSACTIONS */
 
-    'Transactions': '<div class="panel"><div class="portal-panelhead"><div><h4>Transaction history</h4><p class="muted">Sample entries, not actual financial activity.</p></div><span class="portal-chip">DEMO</span></div><div class="dashrow"><span><b>Sample deposit</b><small class="row-sub">Reference: DEMO-DEP-001</small></span><b>+ MWK 25,000</b></div><div class="dashrow"><span><b>Sample loan repayment</b><small class="row-sub">Reference: DEMO-PAY-001</small></span><b>− MWK 105,000</b></div><div class="dashrow"><span><b>Transaction status</b><small class="row-sub">Live payment verification unavailable</small></span><span class="status pending">Not verified</span></div><div class="portal-notice"><b>Report a discrepancy</b><p>In a live portal, customers should be able to report an incorrect transaction using its reference number, date and amount.</p></div><button class="btn primary" onclick="page(\'Support\')">Ask support about a transaction</button></div>',
+    'Transactions': emfUnavailablePage(
+        'Transaction History',
+        'Your verified deposits, withdrawals, transfers and other transactions will appear here when the transaction endpoint is connected.'
+    ),
 
-    /* -----------------------------------------------------
-       SECTION 144.8: SUPPORT PAGE
-    ----------------------------------------------------- */
+    /* SECTION 144.8: SUPPORT */
 
-    'Support': '<div class="panel"><h4>Customer support</h4><p>Get help understanding applications, documents, repayment schedules or the customer portal.</p><div class="portal-shortcuts"><button class="portal-action" onclick="chatToggle(true)"><b>☏ Open support chat</b><small>Website demo assistant</small></button><button class="portal-action" onclick="closeModal(\'login\');document.getElementById(\'contact\').scrollIntoView({behavior:\'smooth\'})"><b>✉ Contact EMF</b><small>Open the website contact section</small></button></div><div class="portal-notice"><b>When asking for help</b><p>Include the application or transaction reference when available, but never send your password, PIN or one-time security code.</p></div></div>'
+    'Support': `
+        <div class="panel">
+
+            <div class="portal-panelhead">
+                <div>
+                    <h4>Customer Support</h4>
+
+                    <p class="muted">
+                        Get help with your EMF account.
+                    </p>
+                </div>
+            </div>
+
+            <div class="portal-notice">
+                <b>Support services</b>
+
+                <p>
+                    You can use the website contact section
+                    to find the current support options.
+                    Live customer-support messaging has not
+                    yet been verified as backend-connected.
+                </p>
+            </div>
+
+            <button
+                class="btn primary"
+                onclick="closeModal('login'); document.getElementById('contact').scrollIntoView({behavior:'smooth'});"
+            >
+                Open Contact Section
+            </button>
+
+        </div>
+    `
 };
+
 
 
 /* =========================================================
@@ -8955,16 +9029,20 @@ document.querySelectorAll('[data-page]').forEach(b => {
 });
 
 
+
 /* =========================================================
    SECTION 147: CUSTOMER LOGIN FORM
 ========================================================= */
 
 $('loginform').onsubmit = async e => {
+
     e.preventDefault();
 
-    const email = $('identity').value.trim();
+    const form = $('loginform');
 
-    const passwordField = $('loginform').querySelector(
+    const identity = $('identity').value.trim();
+
+    const passwordField = form.querySelector(
         'input[type="password"]'
     );
 
@@ -8972,12 +9050,12 @@ $('loginform').onsubmit = async e => {
         ? passwordField.value
         : '';
 
-    if (!email || !password) {
+    if (!identity || !password) {
         notify('Enter your email and password.');
         return;
     }
 
-    const submitButton = $('loginform').querySelector(
+    const submitButton = form.querySelector(
         'button[type="submit"], input[type="submit"]'
     );
 
@@ -8986,38 +9064,53 @@ $('loginform').onsubmit = async e => {
     }
 
     try {
+
         const response = await fetch(
             EMF_API_BASE + '/api/auth/login',
             {
                 method: 'POST',
+
                 headers: {
                     'Content-Type': 'application/json'
                 },
+
                 body: JSON.stringify({
-                    email,
-                    password
+                    email: identity,
+                    password: password
                 })
             }
         );
 
         const result = await response.json();
 
-        if (!response.ok || !result.access_token) {
+        if (
+            !response.ok ||
+            !result.access_token ||
+            !result.customer
+        ) {
             throw new Error(
                 result.message ||
-                'Login failed. Check your email and password.'
+                'Login failed. Check your credentials and try again.'
             );
         }
 
+        /* SECTION 147.1: STORE VERIFIED LOGIN RESPONSE */
+
         emfAccessToken = result.access_token;
-        emfCustomer = result.customer || null;
+        emfCustomer = result.customer;
+
+        /* SECTION 147.2: MARK CUSTOMER SESSION AS READY */
+
+        emfAccountReady = true;
+
+        /* SECTION 147.3: OPEN CUSTOMER DASHBOARD */
 
         $('loginformview').classList.add('hidden');
         $('dash').classList.add('show');
 
         const customerName =
-            emfCustomer?.full_name ||
-            email.split('@')[0] ||
+            emfCustomer.full_name ||
+            identity.split('@')[0] ||
             'Customer';
 
         $('pagetitle').textContent =
@@ -9028,6 +9121,7 @@ $('loginform').onsubmit = async e => {
         notify('Login successful.');
 
     } catch (error) {
+
         console.error('EMF login error:', error);
 
         notify(
@@ -9036,10 +9130,13 @@ $('loginform').onsubmit = async e => {
         );
 
     } finally {
+
         if (submitButton) {
             submitButton.disabled = false;
         }
+
     }
+
 };
 
 
