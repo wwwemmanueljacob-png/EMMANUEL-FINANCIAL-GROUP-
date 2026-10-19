@@ -1,4 +1,6 @@
 
+require("dotenv").config();
+
 const express = require("express");
 const cors = require("cors");
 const { createClient } = require("@supabase/supabase-js");
@@ -39,19 +41,19 @@ if (
       }
     );
 
-  authClient = createClient(
-  SUPABASE_URL,
-  SUPABASE_ANON_KEY,
-  {
-    auth: {
-      autoRefreshToken: false,
-      persistSession: false
-    },
-    realtime: {
-      transport: WebSocket
-    }
-  }
-);
+    authClient = createClient(
+      SUPABASE_URL,
+      SUPABASE_ANON_KEY,
+      {
+        auth: {
+          autoRefreshToken: false,
+          persistSession: false
+        },
+        realtime: {
+          transport: WebSocket
+        }
+      }
+    );
 
     console.log("EMF Supabase clients initialized.");
   } catch (error) {
@@ -90,15 +92,19 @@ async function getAuthenticatedUser(req) {
   const match = authorization.match(/^Bearer\s+(.+)$/i);
 
   if (!match) {
-    return { user: null, error: "Missing authentication token." };
+    return {
+      user: null,
+      error: "Missing authentication token."
+    };
   }
 
-  const { data, error } = await supabase.auth.getUser(
-    match[1]
-  );
+  const { data, error } = await supabase.auth.getUser(match[1]);
 
   if (error || !data.user) {
-    return { user: null, error: "Invalid or expired session." };
+    return {
+      user: null,
+      error: "Invalid or expired session."
+    };
   }
 
   return { user: data.user, error: null };
@@ -122,7 +128,6 @@ async function linkCustomerToAuthUser(user) {
 
   if (error) {
     console.error("Customer lookup failed:", error.message);
-
     return {
       customer: null,
       error: "Unable to retrieve customer account."
@@ -147,23 +152,18 @@ async function linkCustomerToAuthUser(user) {
   }
 
   if (!customer.auth_user_id) {
-    const { data: updated, error: updateError } =
-      await supabase
-        .from("customers")
-        .update({ auth_user_id: user.id })
-        .eq("id", customer.id)
-        .is("auth_user_id", null)
-        .select(
-          "id, full_name, email, phone, address, account_number, account_status, auth_user_id"
-        )
-        .maybeSingle();
+    const { data: updated, error: updateError } = await supabase
+      .from("customers")
+      .update({ auth_user_id: user.id })
+      .eq("id", customer.id)
+      .is("auth_user_id", null)
+      .select(
+        "id, full_name, email, phone, address, account_number, account_status, auth_user_id"
+      )
+      .maybeSingle();
 
     if (updateError) {
-      console.error(
-        "Customer linking failed:",
-        updateError.message
-      );
-
+      console.error("Customer linking failed:", updateError.message);
       return {
         customer: null,
         error: "Unable to link customer account."
@@ -174,15 +174,13 @@ async function linkCustomerToAuthUser(user) {
       return { customer: updated, error: null };
     }
 
-    // Another request may have linked this same user.
-    const { data: current, error: checkError } =
-      await supabase
-        .from("customers")
-        .select(
-          "id, full_name, email, phone, address, account_number, account_status, auth_user_id"
-        )
-        .eq("id", customer.id)
-        .maybeSingle();
+    const { data: current, error: checkError } = await supabase
+      .from("customers")
+      .select(
+        "id, full_name, email, phone, address, account_number, account_status, auth_user_id"
+      )
+      .eq("id", customer.id)
+      .maybeSingle();
 
     if (
       checkError ||
@@ -200,6 +198,10 @@ async function linkCustomerToAuthUser(user) {
 
   return { customer, error: null };
 }
+
+/* =====================================================
+   ROOT AND HEALTH CHECKS
+===================================================== */
 
 app.get("/", (req, res) => {
   res.json({
@@ -229,7 +231,6 @@ app.get("/api/health/supabase", async (req, res) => {
 
     if (error) {
       console.error("Supabase query failed:", error.message);
-
       return res.status(503).json({
         success: false,
         message: "Supabase query failed.",
@@ -242,11 +243,7 @@ app.get("/api/health/supabase", async (req, res) => {
       message: "EMF backend successfully queried Supabase."
     });
   } catch (error) {
-    console.error(
-      "Supabase connection test failed:",
-      error.message
-    );
-
+    console.error("Supabase connection test failed:", error.message);
     return res.status(503).json({
       success: false,
       message: "Supabase connection test failed."
@@ -254,10 +251,8 @@ app.get("/api/health/supabase", async (req, res) => {
   }
 });
 
-
 /* =====================================================
    CUSTOMER REGISTRATION
-   Creates a new Auth user and customers table record.
 ===================================================== */
 
 app.post("/api/auth/register", async (req, res) => {
@@ -297,10 +292,7 @@ app.post("/api/auth/register", async (req, res) => {
       });
     }
 
-    if (
-      typeof password !== "string" ||
-      password.length < 8
-    ) {
+    if (typeof password !== "string" || password.length < 8) {
       return res.status(400).json({
         success: false,
         message: "Password must contain at least 8 characters."
@@ -314,7 +306,6 @@ app.post("/api/auth/register", async (req, res) => {
       });
     }
 
-    // Check whether a customer record already uses this email.
     const { data: existingCustomer, error: lookupError } =
       await supabase
         .from("customers")
@@ -323,11 +314,7 @@ app.post("/api/auth/register", async (req, res) => {
         .maybeSingle();
 
     if (lookupError) {
-      console.error(
-        "Registration lookup failed:",
-        lookupError.message
-      );
-
+      console.error("Registration lookup failed:", lookupError.message);
       return res.status(500).json({
         success: false,
         message: "Unable to check registration details."
@@ -341,14 +328,11 @@ app.post("/api/auth/register", async (req, res) => {
       });
     }
 
-    // Create the Supabase Auth account.
     const { data, error } = await authClient.auth.signUp({
       email,
       password,
       options: {
-        data: {
-          full_name: fullName
-        }
+        data: { full_name: fullName }
       }
     });
 
@@ -366,8 +350,6 @@ app.post("/api/auth/register", async (req, res) => {
       });
     }
 
-    // Detect an existing Auth account when Supabase
-    // returns an empty identities list.
     if (
       Array.isArray(data.user.identities) &&
       data.user.identities.length === 0
@@ -380,12 +362,11 @@ app.post("/api/auth/register", async (req, res) => {
 
     newAuthUserId = data.user.id;
 
-    // Create the matching customer record.
     const { error: customerError } = await supabase
       .from("customers")
       .insert({
         full_name: fullName,
-        email: email,
+        email,
         phone: phone || null,
         account_status: "PENDING",
         auth_user_id: newAuthUserId
@@ -397,23 +378,22 @@ app.post("/api/auth/register", async (req, res) => {
         customerError.message
       );
 
-      // Attempt to remove the Auth user if the
-      // customer record could not be created.
       const { error: cleanupError } =
         await supabase.auth.admin.deleteUser(newAuthUserId);
 
       if (cleanupError) {
-        console.error(
-          "Auth cleanup failed:",
-          cleanupError.message
-        );
+        console.error("Auth cleanup failed:", cleanupError.message);
       }
+
+      newAuthUserId = null;
 
       return res.status(500).json({
         success: false,
         message: "Your customer record could not be created. Please try again or contact support."
       });
     }
+
+    newAuthUserId = null;
 
     return res.status(201).json({
       success: true,
@@ -422,24 +402,15 @@ app.post("/api/auth/register", async (req, res) => {
         : "Registration successful. Check your email for a verification link before signing in.",
       requiresEmailVerification: !data.user.email_confirmed_at
     });
-
   } catch (error) {
-    console.error(
-      "Registration failed:",
-      error.message
-    );
+    console.error("Registration failed:", error.message);
 
-    // Best-effort cleanup if an unexpected error occurs
-    // after the Auth user has been created.
-    if (newAuthUserId) {
+    if (newAuthUserId && supabase) {
       const { error: cleanupError } =
         await supabase.auth.admin.deleteUser(newAuthUserId);
 
       if (cleanupError) {
-        console.error(
-          "Auth cleanup failed:",
-          cleanupError.message
-        );
+        console.error("Auth cleanup failed:", cleanupError.message);
       }
     }
 
@@ -450,8 +421,10 @@ app.post("/api/auth/register", async (req, res) => {
   }
 });
 
+/* =====================================================
+   CUSTOMER LOGIN
+===================================================== */
 
-// CUSTOMER LOGIN
 app.post("/api/auth/login", async (req, res) => {
   if (!requireSupabase(res)) return;
 
@@ -463,11 +436,7 @@ app.post("/api/auth/login", async (req, res) => {
 
     const password = req.body.password;
 
-    if (
-      !validEmail(email) ||
-      typeof password !== "string" ||
-      !password
-    ) {
+    if (!validEmail(email) || typeof password !== "string" || !password) {
       return res.status(400).json({
         success: false,
         message: "Enter your email address and password."
@@ -483,8 +452,7 @@ app.post("/api/auth/login", async (req, res) => {
     if (error || !data.user || !data.session) {
       return res.status(401).json({
         success: false,
-        message:
-          "Sign-in failed. Check your details and verify your email if required."
+        message: "Sign-in failed. Check your details and verify your email if required."
       });
     }
 
@@ -508,7 +476,6 @@ app.post("/api/auth/login", async (req, res) => {
     });
   } catch (error) {
     console.error("Login failed:", error.message);
-
     return res.status(500).json({
       success: false,
       message: "Unable to complete sign-in."
@@ -516,7 +483,10 @@ app.post("/api/auth/login", async (req, res) => {
   }
 });
 
-// SIGNED-IN CUSTOMER PROFILE
+/* =====================================================
+   SIGNED-IN CUSTOMER PROFILE
+===================================================== */
+
 app.get("/api/customer/me", async (req, res) => {
   if (!requireSupabase(res)) return;
 
@@ -541,7 +511,6 @@ app.get("/api/customer/me", async (req, res) => {
 
     if (error) {
       console.error("Profile lookup failed:", error.message);
-
       return res.status(500).json({
         success: false,
         message: "Unable to retrieve customer profile."
@@ -555,13 +524,9 @@ app.get("/api/customer/me", async (req, res) => {
       });
     }
 
-    return res.json({
-      success: true,
-      customer
-    });
+    return res.json({ success: true, customer });
   } catch (error) {
     console.error("Profile request failed:", error.message);
-
     return res.status(500).json({
       success: false,
       message: "Unable to retrieve customer profile."
@@ -569,12 +534,20 @@ app.get("/api/customer/me", async (req, res) => {
   }
 });
 
+/* =====================================================
+   UNKNOWN ROUTES
+===================================================== */
+
 app.use((req, res) => {
   res.status(404).json({
     success: false,
     message: "Endpoint not found."
   });
 });
+
+/* =====================================================
+   START SERVER
+===================================================== */
 
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`EMF backend listening on port ${PORT}`);
