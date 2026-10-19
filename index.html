@@ -858,454 +858,6 @@
             font-size: 1.6rem;
         }
 
-        .blogminODUCT CARDS
-        ========================================================= */
-
-        .services {
-            grid-template-columns: repeat(4, 1fr);
-        }
-
-        .card,
-        .product {
-            border: 1px solid var(--line);
-            border-radius: 18px;
-            background: white;
-            padding: 22px;
-            transition: .2s;
-        }
-
-        .card:hover,
-        .product:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 15px 38px #06152f16;
-            border-color: #a3eaf0;
-        }
-
-        .ico {
-            width: 52px;
-            height: 52px;
-            display: grid;
-            place-items: center;
-            border-radius: 15px;
-            background: #e2f9fc;
-            color: #057ca3;
-            font-size: 1.5rem;
-            margin-bottom: 16px;
-        }
-
-        .card h3,
-        .product h3 {
-            margin: 0 0 7px;
-            color: var(--n);
-        }
-
-        .card p,
-        .product p {
-            color: var(--mut);
-            font-size: .9rem;
-            margin: 0 0 15px;
-        }
-
-        .textlink {
-            color: #087eaa;
-            font-weight: 800;
-            font-size: .88rem;
-        }
-
-        .products {
-            grid-template-columns: repeat(3, 1fr);
-        }
-
-        .product {
-            padding: 0;
-            overflow: hidden;
-        }
-
-        .ptop {
-            padding: 22px;
-            background: linear-gradient(135deg, #eafaff, #f8fbff);
-            border-bottom: 1px solid var(--line);
-        }
-
-        .tag {
-            display: inline-block;
-            padding: 5px 9px;
-            border-radius: 30px;
-            background: #d7f8fc;
-            color: #086687;
-            font-size: .7rem;
-            font-weight: 900;
-        }
-
-        .pbody {
-            padding: 20px;
-        }
-
-        .pbody ul {
-            padding-left: 18px;
-            color: var(--mut);
-            font-size: .86rem;
-        }
-
-        .pbody li {
-            margin: 6px 0;
-        }
-
-        .pbody .btn {
-            width: 100%;
-        }
-
-
-        /* =========================================================
-           SECTION 08 — LOAN CALCULATOR
-        ========================================================= */
-
-        .calculator {
-            background: linear-gradient(135deg, #f0f9ff, #e9f8fb);
-        }
-
-        .calcbox {
-            display: grid;
-            grid-template-columns: 1fr 1.1fr;
-            border: 1px solid #d5e7f1;
-            border-radius: 22px;
-            overflow: hidden;
-            box-shadow: 0 15px 45px #06152f12;
-            background: white;
-        }
-
-        .calcform,
-        .results {
-            padding: 28px;
-        }
-
-        .results {
-            background: var(--n);
-            color: white;
-        }
-
-        .calcform h3,
-        .results h3 {
-            margin: 0 0 6px;
-        }
-
-        .muted {
-            color: var(--mut);
-            font-size: .85rem;
-            margin: 0 0 18px;
-        }
-
-        .results .muted {
-            color: #b9d0e5;
-        }
-
-        .fields {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
-
-        .field {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            margin-bottom: 13px;
-            min-width: 0;
-        }
-
-        .field label {
-            font-size: .8rem;
-            font-weight: 800;
-            color: #314c66;
-        }
-
-        .field input,
-        .field select,
-        .field textarea {
-            border: 1px solid #cbdce8;
-            border-radius: 10px;
-            padding: 11px;
-            background: #fbfdff;
-            min-width: 0;
-            width: 100%;
-            color: var(--ink);
-        }
-
-        .field textarea {
-            min-height: 90px;
-        }
-
-        .termsbox {
-            max-height: 230px;
-            overflow: auto;
-            border: 1px solid #cbdce8;
-            background: #f8fcff;
-            border-radius: 12px;
-            padding: 16px;
-            font-size: .88rem;
-            color: #334e68;
-            margin: 12px 0;
-        }
-
-        .termsbox h4 {
-            color: #06152f;
-            margin: 14px 0 4px;
-        }
-
-        .consentrow {
-            display: flex;
-            gap: 10px;
-            align-items: flex-start;
-            margin: 12px 0;
-            font-size: .88rem;
-        }
-
-        .consentrow input {
-            margin-top: 5px;
-            flex: none;
-        }
-
-        .signature {
-            font-family: cursive;
-            font-size: 1.1rem;
-        }
-
-        .signature-fields {
-            align-items: start;
-        }
-
-        .signature-fields .field {
-            min-width: 0;
-        }
-
-        .signature-fields canvas {
-            max-width: 100%;
-        }
-
-        .formhint {
-            font-size: .78rem;
-            color: #64778b;
-            margin: 4px 0 12px;
-        }
-
-        .field input:focus,
-        .field select:focus,
-        .field textarea:focus {
-            outline: 2px solid #1bc7da55;
-            border-color: #1bbbd0;
-        }
-
-        .calcform > .btn {
-            width: 100%;
-        }
-
-        .total {
-            background: linear-gradient(110deg, #0b83b5, #15d1df);
-            color: #04203c;
-            padding: 16px;
-            border-radius: 13px;
-        }
-
-        .total span {
-            font-size: .78rem;
-            font-weight: 800;
-        }
-
-        .total strong {
-            display: block;
-            font-size: 1.8rem;
-        }
-
-        .tiles {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin: 14px 0;
-        }
-
-        .tile {
-            padding: 12px;
-            border-radius: 12px;
-            background: #102e51;
-            border: 1px solid #ffffff18;
-        }
-
-        .tile small {
-            display: block;
-            color: #b6cee4;
-        }
-
-        .tile b {
-            display: block;
-            margin-top: 4px;
-        }
-
-        .tablewrap {
-            overflow: auto;
-        }
-
-        .tablewrap table {
-            width: 100%;
-            border-collapse: collapse;
-            min-width: 450px;
-            font-size: .76rem;
-        }
-
-        .tablewrap th,
-        .tablewrap td {
-            text-align: left;
-            padding: 9px 7px;
-            border-bottom: 1px solid #ffffff1e;
-        }
-
-        .tablewrap th {
-            color: #9eeef5;
-        }
-
-        .tablewrap td {
-            color: #e4f0f9;
-        }
-
-        .tablewrap tfoot {
-            font-weight: 900;
-        }
-
-
-        /* =========================================================
-           SECTION 09 — PROCESS STEPS
-        ========================================================= */
-
-        .steps {
-            grid-template-columns: repeat(4, 1fr);
-        }
-
-        .step {
-            padding: 20px;
-            border: 1px solid var(--line);
-            border-radius: 16px;
-        }
-
-        .stepnum {
-            background: #e0f9fc;
-            color: #057da3;
-            border-radius: 10px;
-            width: 37px;
-            height: 37px;
-            display: grid;
-            place-items: center;
-            font-weight: 900;
-            margin-bottom: 12px;
-        }
-
-        .step h3 {
-            margin: 0 0 7px;
-            color: var(--n);
-            font-size: 1rem;
-        }
-
-        .step p {
-            margin: 0;
-            color: var(--mut);
-            font-size: .86rem;
-        }
-
-
-        /* =========================================================
-           SECTION 10 — BLOG AND FINANCIAL UPDATES
-        ========================================================= */
-
-        .bloglayout {
-            display: grid;
-            grid-template-columns: 1.5fr .9fr;
-            gap: 18px;
-        }
-
-        .featureblog {
-            border-radius: 20px;
-            min-height: 330px;
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            justify-content: end;
-            color: white;
-            position: relative;
-            overflow: hidden;
-            background:
-                radial-gradient(circle at 80% 15%, #25d5d7, transparent 25%),
-                linear-gradient(130deg, #06152f, #0a4771 75%, #098a9a);
-        }
-
-        .featureblog:before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background:
-                linear-gradient(0deg, #031127e8, transparent 75%),
-                repeating-linear-gradient(
-                    130deg,
-                    transparent 0 30px,
-                    #ffffff09 31px 32px
-                );
-        }
-
-        .featureblog > * {
-            position: relative;
-        }
-
-        .featureblog h3 {
-            font-size: clamp(1.5rem, 3vw, 2.2rem);
-            line-height: 1.12;
-            margin: 13px 0;
-        }
-
-        .featureblog p {
-            color: #d7edf8;
-            max-width: 520px;
-        }
-
-        .featureblog .tag {
-            background: #b7f7fa;
-            color: #06344d;
-        }
-
-        .blogcontrols {
-            display: flex;
-            gap: 8px;
-        }
-
-        .blogcontrols button {
-            background: #ffffff16;
-            border: 1px solid #ffffff55;
-            border-radius: 9px;
-            color: white;
-            padding: 9px 12px;
-        }
-
-        .blogside {
-            display: grid;
-            gap: 12px;
-        }
-
-        .blogmini {
-            display: flex;
-            align-items: center;
-            gap: 13px;
-            border: 1px solid var(--line);
-            border-radius: 14px;
-            padding: 13px;
-        }
-
-        .thumb {
-            width: 66px;
-            height: 66px;
-            flex: none;
-            border-radius: 12px;
-            background: linear-gradient(135deg, #e0faff, #0a8db4);
-            display: grid;
-            place-items: center;
-            font-size: 1.6rem;
-        }
-
         .blogmini h4 {
             margin: 0 0 5px;
             color: var(--n);
@@ -2502,10 +2054,6 @@
             border-color: #00aeca;
         }
 
-        .signature-fields canvas {
-            box-shadow: inset 0 0 0 1px rgba(0, 212, 255, .08);
-        }
-
         .btn.primary {
             background: linear-gradient(105deg, #00c8f0, #7df0fa);
             box-shadow: 0 6px 18px rgba(0, 175, 214, .18);
@@ -2538,10 +2086,6 @@
 
             .signature-fields {
                 grid-template-columns: 1fr;
-            }
-
-            .signature-fields canvas {
-                height: 145px;
             }
         }
 
@@ -2898,7 +2442,7 @@
         }
     </style>
 </head>
-
+<style>
 /* =========================================================
    14. EMF LAYOUT AND BACKGROUND CORRECTION
    Dark panels, readable text and consistent backgrounds
@@ -3120,15 +2664,6 @@ section.shade,
     min-width: 0;
 }
 
-.signature-fields canvas {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    background: #e1edf4 !important;
-    border-color: #65839a !important;
-    touch-action: none;
-}
-
 
 /* =========================================================
    19. FLOATING CARDS, BLOG AND TICKER
@@ -3308,10 +2843,6 @@ section.shade,
 
     .signature-fields {
         grid-template-columns: minmax(0,1fr);
-    }
-
-    .signature-fields canvas {
-        height: 145px;
     }
 
     .modal {
@@ -3763,19 +3294,8 @@ section.shade,
    36. REGISTRATION AGREEMENT AND SIGNATURE CONTROLS
 ========================================================= */
 
-#register .termsbox {
-    max-height: min(32dvh, 230px);
-    overflow-y: auto;
-    overscroll-behavior: contain;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-gutter: stable;
-}
-
 #register .signature-fields,
 #register .consentrow,
-#register #agreeContinue {
-    scroll-margin-top: 18px;
-}
 
 
 /* =========================================================
@@ -3798,18 +3318,6 @@ section.shade,
     .backdrop .modalbody {
         max-height: calc(100dvh - 82px);
         padding: 13px;
-    }
-
-    .fields.signature-fields {
-        grid-template-columns: 1fr;
-    }
-
-    .signature-fields canvas {
-        height: 125px !important;
-    }
-
-    #register .termsbox {
-        max-height: 29dvh;
     }
 }
 
@@ -4083,11 +3591,6 @@ footer {
    49. SIGNATURE CANVAS
    Keep the drawing surface visibly distinct without pure white
 ========================================================= */
-
-.signature-fields canvas {
-    background: #d5e5ef !important;
-    border-color: #5e8caf !important;
-}
 
 
 /* =========================================================
@@ -4434,14 +3937,6 @@ section.shade,
    62. SIGNATURE CANVAS
 ========================================================= */
 
-.signature-fields canvas {
-    background: #e8f0f8;
-    border: 2px solid #f2c14e;
-    border-radius: 10px;
-    touch-action: none;
-    max-width: 100%;
-}
-
 
 /* =========================================================
    63. FAQ SECTION
@@ -4663,12 +4158,6 @@ section,
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 14px;
-}
-
-.signature-fields canvas {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 2.5/1;
 }
 
 
@@ -6557,9 +6046,7 @@ section,
                 <h2>Your account, in one place</h2>
 
                 <p>
-                    Sign in to explore the sample customer dashboard.
-                    Real balances and account access require secure
-                    backend integration.
+                    Sign in to access your authenticated EMF customer account. Your profile is retrieved from the EMF backend.
                 </p>
 
                 <button
@@ -6576,8 +6063,7 @@ section,
                     <div class="ico">▦</div>
                     <h3>Dashboard overview</h3>
                     <p>
-                        Sample account summary, recent activity and
-                        quick links.
+                        Your account overview is based on your verified customer profile. Financial summaries appear when the relevant account services are enabled.
                     </p>
                 </article>
 
@@ -6585,8 +6071,7 @@ section,
                     <div class="ico">▤</div>
                     <h3>My applications</h3>
                     <p>
-                        Sample application statuses and document
-                        requirements.
+                        View application status after the loan-application service is enabled for your account.
                     </p>
                 </article>
 
@@ -6594,7 +6079,7 @@ section,
                     <div class="ico">◷</div>
                     <h3>Repayment schedule</h3>
                     <p>
-                        Review example instalment dates and amounts.
+                        Repayment schedules and posted payments will be shown when the repayment service is available.
                     </p>
                 </article>
 
@@ -6602,7 +6087,7 @@ section,
                     <div class="ico">☏</div>
                     <h3>Support & profile</h3>
                     <p>
-                        Find support options and profile tools.
+                        Review your authenticated profile and use the published support contact options.
                     </p>
                 </article>
 
@@ -6624,8 +6109,7 @@ section,
                 <h2>Support, chat & FAQs</h2>
 
                 <p>
-                    Find quick answers or open the EMF support
-                    chat assistant.
+                    Find answers to common questions and review available support options.
                 </p>
             </div>
 
@@ -6642,14 +6126,13 @@ section,
 
                     <button
                         class="btn primary"
-                        onclick="chatToggle(true)"
+                        onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});"
                     >
-                        Chat with EMF Support ↗
+                        Contact EMF Support ↗
                     </button>
 
                     <p style="font-size:.75rem">
-                        Prototype chat only; it does not reach a
-                        live support team.
+                        The FAQ section provides general information. For account-specific help, use the official contact details published by EMF.
                     </p>
                 </aside>
 
@@ -6677,10 +6160,7 @@ section,
                         </button>
 
                         <div class="answer">
-                            Choose a product, review the estimate and
-                            select Apply. Complete the requested details
-                            and documents. Submission does not guarantee
-                            approval.
+                            Review available product information and the repayment estimate. Contact EMF for the current application process; the online submission service is not enabled yet.
                         </div>
                     </div>
 
@@ -6733,9 +6213,7 @@ section,
                         </button>
 
                         <div class="answer">
-                            Use Customer Dashboard Login. This prototype
-                            shows sample information only; real tracking
-                            needs a secure account and application database.
+                            Sign in to view your authenticated account profile. Loan tracking and financial records appear only when those backend services are available.
                         </div>
                     </div>
 
@@ -6889,8 +6367,7 @@ section,
                     </button>
 
                     <p class="legal">
-                        Demo only: the form does not transmit messages
-                        until connected to a secure support service.
+                        Online support messaging is not enabled. Use the official contact details published by EMF.
                     </p>
                 </form>
 
@@ -7034,209 +6511,7 @@ section,
     </div>
 </footer>
 <!-- =========================================================
-     SECTION 106: LOAN TERMS & AGREEMENT MODAL
-========================================================= -->
-
-<div class="backdrop" id="register">
-    <div class="modal">
-
-        <div class="modalhead">
-            <div class="brand">
-                <span class="logo">EMF</span>
-                <span>
-                    Loan Terms & Agreement
-                    <small>Step 1 · Read, accept and sign</small>
-                </span>
-            </div>
-
-            <button class="close" onclick="closeModal('register')">
-                ✕
-            </button>
-        </div>
-
-        <div class="modalbody">
-
-            <div class="note">
-                Website prototype only. This draft must be reviewed before
-                launch. Do not enter sensitive information until the secure
-                live service is connected.
-            </div>
-
-            <h3>
-                <span
-                    class="ico"
-                    style="display:inline-grid;width:34px;height:34px;margin:0 8px 0 0;vertical-align:middle"
-                >📄</span>
-                Loan Terms and Conditions
-            </h3>
-
-            <div
-                class="termsbox"
-                tabindex="0"
-                aria-label="Loan Terms and Conditions"
-            >
-
-                <h4>1. Eligibility and account</h4>
-                <p>
-                    You must provide accurate information and meet applicable
-                    eligibility and verification requirements. Creating an
-                    account does not guarantee a loan or mean a loan has been
-                    approved.
-                </p>
-
-                <h4>2. Application and assessment</h4>
-                <p>
-                    EMF may assess identity, income, expenses, affordability,
-                    creditworthiness and supporting documents. You must not
-                    submit false or misleading information.
-                </p>
-
-                <h4>3. Interest, fees and repayment</h4>
-                <p>
-                    Before accepting a loan offer, you should receive the
-                    amount offered, interest calculation, applicable fees,
-                    total amount repayable, repayment dates and term. Borrow
-                    only when you understand and can reasonably afford
-                    repayments.
-                </p>
-
-                <h4>4. Repayment and default</h4>
-                <p>
-                    If you separately accept a loan agreement, you must repay
-                    according to its terms. Missed payments may lead to lawful
-                    arrears recovery. Contact support promptly if you expect
-                    difficulty paying.
-                </p>
-
-                <h4>5. Collateral and guarantors</h4>
-                <p>
-                    Collateral or a guarantor may be required for some
-                    products. Obligations must be explained separately and
-                    agreed before they take effect.
-                </p>
-
-                <h4>6. Privacy and verification</h4>
-                <p>
-                    Personal information may be used for account
-                    administration, identity checks, loan assessment, fraud
-                    prevention, legal compliance and support as explained in
-                    the Privacy Notice.
-                </p>
-
-                <h4>7. Account security</h4>
-                <p>
-                    Keep your password confidential and notify EMF if you
-                    suspect unauthorised access.
-                </p>
-
-                <h4>8. Complaints and changes</h4>
-                <p>
-                    You may raise questions or complaints through published
-                    support channels. Material changes should be communicated
-                    appropriately.
-                </p>
-
-                <h4>9. Applicable law</h4>
-                <p>
-                    These draft terms are intended for a Malawi-based service
-                    and require review by a qualified Malawian legal
-                    professional before binding use.
-                </p>
-
-                <h4>10. Important acknowledgement</h4>
-                <p>
-                    Registration is not loan approval. A separate loan offer
-                    and agreement must disclose the actual cost of credit and
-                    repayment schedule before you decide to borrow.
-                </p>
-
-            </div>
-
-            <div class="fields signature-fields">
-
-                <div class="field">
-                    <label for="agreementFullName">
-                        Full legal name *
-                    </label>
-
-                    <input
-                        id="agreementFullName"
-                        required
-                        autocomplete="name"
-                        placeholder="Enter your full legal name"
-                    >
-                </div>
-
-                <div class="field">
-                    <label>Handwritten signature *</label>
-
-                    <canvas
-                        id="signaturePad"
-                        aria-label="Draw your signature here"
-                        role="img"
-                        style="display:block;width:100%;height:135px;background:#fff;border:1px solid #b8cbd9;border-radius:10px;touch-action:none;cursor:crosshair"
-                    ></canvas>
-
-                    <div class="formhint">
-                        Use your finger or mouse to sign in the box.
-
-                        <button
-                            type="button"
-                            class="btn light"
-                            style="padding:5px 9px;font-size:.78rem"
-                            id="clearSignature"
-                        >
-                            Clear signature
-                        </button>
-                    </div>
-                </div>
-
-            </div>
-
-            <label class="consentrow">
-                <input id="acceptTerms" type="checkbox" required>
-                <span>
-                    I have read and agree to the EMF Loan Terms and Conditions. *
-                </span>
-            </label>
-
-            <label class="consentrow">
-                <input id="acceptPrivacy" type="checkbox" required>
-                <span>
-                    I acknowledge that I have read the Privacy Notice. *
-                </span>
-            </label>
-
-            <label class="consentrow">
-                <input id="confirmSignature" type="checkbox" required>
-                <span>
-                    I confirm that this is my own signature and the information
-                    provided is accurate. *
-                </span>
-            </label>
-
-            <button
-                class="btn primary"
-                id="agreeContinue"
-                style="width:100%"
-                type="button"
-            >
-                Agree to Conditions & Continue →
-            </button>
-
-            <p class="legal">
-                Your drawn signature is only captured in this demo browser.
-                A live service must securely record consent and verify it
-                server-side. Have these terms legally reviewed before use.
-            </p>
-
-        </div>
-    </div>
-</div>
-
-
-<!-- =========================================================
-     SECTION 107: CUSTOMER ACCOUNT CREATION MODAL
+     SECTION 106: CUSTOMER ACCOUNT CREATION MODAL
 ========================================================= -->
 
 <div class="backdrop" id="account">
@@ -7247,7 +6522,7 @@ section,
                 <span class="logo">EMF</span>
                 <span>
                     Create Your Customer Account
-                    <small>Step 2 · Account details only</small>
+                    <small>Create account</small>
                 </span>
             </div>
 
@@ -7259,8 +6534,7 @@ section,
         <div class="modalbody">
 
             <div class="note">
-                Create your account details after agreeing to the terms.
-                Demo only: this form does not create a secure live account.
+                Create your customer account. Use your own details and a strong password.
             </div>
 
             <form id="accountform">
@@ -7348,7 +6622,7 @@ section,
                 <span class="logo">EMF</span>
                 <span>
                     Choose a Loan Product
-                    <small>Step 3 · Select your application</small>
+                    <small>Select a loan product</small>
                 </span>
             </div>
 
@@ -7360,8 +6634,7 @@ section,
         <div class="modalbody">
 
             <p class="muted">
-                Choose the loan product you want to apply for. The matching
-                application form will open next.
+                Review the available loan products. Online application submission is not enabled in the current backend.
             </p>
 
             <div
@@ -7472,591 +6745,6 @@ section,
 
 
 <!-- =========================================================
-     SECTION 109: MULTI-STEP LOAN APPLICATION MODAL
-========================================================= -->
-
-<div class="backdrop" id="apply">
-    <div class="modal">
-
-        <div class="modalhead">
-            <div class="brand">
-                <span class="logo">EMF</span>
-                <span>
-                    Loan Application
-                    <small>Guided application form</small>
-                </span>
-            </div>
-
-            <button class="close" onclick="closeModal('apply')">
-                ✕
-            </button>
-        </div>
-
-        <div class="modalbody">
-
-            <div class="note">
-                Prototype only. Do not enter real sensitive information or
-                upload real identity documents. This form does not send or
-                store data.
-            </div>
-
-            <div class="stepper" id="stepper">
-                <i class="active"></i>
-                <i></i>
-                <i></i>
-                <i></i>
-                <i></i>
-            </div>
-
-            <form id="application">
-
-                <!-- SECTION 109.1: PERSONAL DETAILS -->
-
-                <div class="appstep active">
-
-                    <h3>1. Personal details</h3>
-
-                    <div class="fields">
-
-                        <div class="field">
-                            <label>Applicant type *</label>
-
-                            <select id="applicantType" required>
-                                <option>Individual / Personal</option>
-                                <option>Business</option>
-                            </select>
-                        </div>
-
-                        <div class="field">
-                            <label>Loan product *</label>
-
-                            <select id="appProduct" required>
-                                <option>Personal Loan</option>
-                                <option>Business Loan</option>
-                                <option>School Fees Loan</option>
-                                <option>Agriculture Loan</option>
-                                <option>Asset / Equipment Loan</option>
-                                <option>Emergency Loan</option>
-                            </select>
-                        </div>
-
-                        <div class="field">
-                            <label>Full legal name *</label>
-
-                            <input
-                                name="fullName"
-                                required
-                                placeholder="As shown on ID"
-                            >
-                        </div>
-
-                        <div class="field">
-                            <label>Date of birth</label>
-
-                            <input type="date" name="dob">
-                        </div>
-
-                        <div class="field">
-                            <label>National ID / passport number *</label>
-
-                            <input
-                                required
-                                name="idNumber"
-                                placeholder="Demo reference only"
-                            >
-                        </div>
-
-                        <div class="field">
-                            <label>Marital status</label>
-
-                            <select name="marital">
-                                <option>Prefer not to say</option>
-                                <option>Single</option>
-                                <option>Married</option>
-                                <option>Separated</option>
-                                <option>Widowed</option>
-                                <option>Other</option>
-                            </select>
-                        </div>
-
-                    </div>
-
-                    <div class="field">
-                        <label>Loan purpose *</label>
-
-                        <textarea
-                            required
-                            name="purpose"
-                            placeholder="What will the loan be used for?"
-                        ></textarea>
-                    </div>
-
-                </div>
-
-
-                <!-- SECTION 109.2: CONTACT AND ADDRESS -->
-
-                <div class="appstep">
-
-                    <h3>2. Contact & address</h3>
-
-                    <div class="fields">
-
-                        <div class="field">
-                            <label>Phone number *</label>
-
-                            <input
-                                required
-                                name="phone"
-                                type="tel"
-                                placeholder="+265..."
-                            >
-                        </div>
-
-                        <div class="field">
-                            <label>Email address *</label>
-
-                            <input
-                                required
-                                name="email"
-                                type="email"
-                                placeholder="you@example.com"
-                            >
-                        </div>
-
-                        <div class="field">
-                            <label>Residential address *</label>
-
-                            <input
-                                required
-                                name="address"
-                                placeholder="House, street, area"
-                            >
-                        </div>
-
-                        <div class="field">
-                            <label>District / city *</label>
-
-                            <input
-                                required
-                                name="district"
-                                placeholder="District or city"
-                            >
-                        </div>
-
-                        <div class="field">
-                            <label>Region</label>
-
-                            <select name="region">
-                                <option>Central Region</option>
-                                <option>Northern Region</option>
-                                <option>Southern Region</option>
-                                <option>Other</option>
-                            </select>
-                        </div>
-
-                        <div class="field">
-                            <label>Duration at address</label>
-
-                            <input
-                                name="addressDuration"
-                                placeholder="e.g. 3 years"
-                            >
-                        </div>
-
-                        <div class="field">
-                            <label>Next of kin full name</label>
-
-                            <input name="kinName">
-                        </div>
-
-                        <div class="field">
-                            <label>Next of kin phone</label>
-
-                            <input name="kinPhone" type="tel">
-                        </div>
-
-                    </div>
-                </div>
-
-
-                <!-- SECTION 109.3: EMPLOYMENT AND INCOME -->
-
-                <div class="appstep">
-
-                    <h3>3. Employment & income</h3>
-
-                    <div class="fields">
-
-                        <div class="field">
-                            <label>Employment status *</label>
-
-                            <select required name="employment">
-                                <option value="">Select status</option>
-                                <option>Employed</option>
-                                <option>Self-employed</option>
-                                <option>Business owner</option>
-                                <option>Farmer</option>
-                                <option>Contract worker</option>
-                                <option>Other</option>
-                            </select>
-                        </div>
-
-                        <div class="field">
-                            <label>Employer / business name</label>
-
-                            <input name="employer">
-                        </div>
-
-                        <div class="field">
-                            <label>Occupation / job title</label>
-
-                            <input name="occupation">
-                        </div>
-
-                        <div class="field">
-                            <label>Work address</label>
-
-                            <input name="workAddress">
-                        </div>
-
-                        <div class="field">
-                            <label>Monthly income (MWK) *</label>
-
-                            <input
-                                required
-                                type="number"
-                                min="0"
-                                name="income"
-                            >
-                        </div>
-
-                        <div class="field">
-                            <label>Monthly expenses (MWK) *</label>
-
-                            <input
-                                required
-                                type="number"
-                                min="0"
-                                name="expenses"
-                            >
-                        </div>
-
-                        <div class="field">
-                            <label>Other monthly debt payments (MWK)</label>
-
-                            <input
-                                type="number"
-                                min="0"
-                                name="debts"
-                            >
-                        </div>
-
-                        <div class="field">
-                            <label>Preferred repayment date</label>
-
-                            <select name="repayDay">
-                                <option>1st of month</option>
-                                <option>5th of month</option>
-                                <option>15th of month</option>
-                                <option>25th of month</option>
-                            </select>
-                        </div>
-
-                    </div>
-
-                    <div class="field">
-                        <label>Income notes</label>
-
-                        <textarea name="incomeNotes"></textarea>
-                    </div>
-
-                </div>
-
-
-                <!-- SECTION 109.4: BUSINESS DETAILS -->
-
-                <div class="appstep">
-
-                    <h3>4. Business details</h3>
-
-                    <p class="muted">
-                        Complete if applying for business finance or if your
-                        income comes from a business.
-                    </p>
-
-                    <div class="fields">
-
-                        <div class="field">
-                            <label>Registered business name</label>
-
-                            <input name="businessName">
-                        </div>
-
-                        <div class="field">
-                            <label>Registration number</label>
-
-                            <input name="businessReg">
-                        </div>
-
-                        <div class="field">
-                            <label>Business type</label>
-
-                            <select name="businessType">
-                                <option>Not applicable</option>
-                                <option>Sole proprietor</option>
-                                <option>Partnership</option>
-                                <option>Limited company</option>
-                                <option>Cooperative</option>
-                                <option>Other</option>
-                            </select>
-                        </div>
-
-                        <div class="field">
-                            <label>Years operating</label>
-
-                            <input
-                                name="years"
-                                type="number"
-                                min="0"
-                            >
-                        </div>
-
-                        <div class="field">
-                            <label>Monthly turnover (MWK)</label>
-
-                            <input
-                                name="turnover"
-                                type="number"
-                                min="0"
-                            >
-                        </div>
-
-                        <div class="field">
-                            <label>Monthly business costs (MWK)</label>
-
-                            <input
-                                name="businessCosts"
-                                type="number"
-                                min="0"
-                            >
-                        </div>
-
-                        <div class="field">
-                            <label>Business location</label>
-
-                            <input name="businessAddress">
-                        </div>
-
-                        <div class="field">
-                            <label>Business sector</label>
-
-                            <select name="sector">
-                                <option>Not applicable</option>
-                                <option>Retail / Trading</option>
-                                <option>Agriculture</option>
-                                <option>Transport</option>
-                                <option>Manufacturing</option>
-                                <option>Services</option>
-                                <option>Technology</option>
-                                <option>Other</option>
-                            </select>
-                        </div>
-
-                    </div>
-
-                    <div class="field">
-                        <label>Business plan / cash-flow summary</label>
-
-                        <textarea name="businessPlan"></textarea>
-                    </div>
-
-                </div>
-
-
-                <!-- SECTION 109.5: LOAN AMOUNT, COLLATERAL AND KYC -->
-
-                <div class="appstep">
-
-                    <h3>5. Loan amount, collateral & KYC</h3>
-
-                    <div class="fields">
-
-                        <div class="field">
-                            <label>Amount requested (MWK) *</label>
-
-                            <input
-                                required
-                                id="appAmount"
-                                name="amount"
-                                type="number"
-                                min="1000"
-                                step="1000"
-                            >
-                        </div>
-
-                        <div class="field">
-                            <label>Requested term</label>
-
-                            <select name="term">
-                                <option>1 month</option>
-                                <option>3 months</option>
-                                <option>6 months</option>
-                                <option>9 months</option>
-                                <option>12 months</option>
-                                <option>18 months</option>
-                                <option>24 months</option>
-                                <option>36 months</option>
-                            </select>
-                        </div>
-
-                        <div class="field">
-                            <label>Collateral available?</label>
-
-                            <select name="collateral">
-                                <option>No</option>
-                                <option>Yes</option>
-                                <option>To be discussed</option>
-                            </select>
-                        </div>
-
-                        <div class="field">
-                            <label>Collateral type</label>
-
-                            <select name="collateralType">
-                                <option>None / not applicable</option>
-                                <option>Vehicle</option>
-                                <option>Land / property</option>
-                                <option>Equipment</option>
-                                <option>Inventory</option>
-                                <option>Guarantor</option>
-                                <option>Other</option>
-                            </select>
-                        </div>
-
-                        <div class="field">
-                            <label>Estimated collateral value (MWK)</label>
-
-                            <input
-                                name="collateralValue"
-                                type="number"
-                                min="0"
-                            >
-                        </div>
-
-                        <div class="field">
-                            <label>Guarantor name / details</label>
-
-                            <input name="guarantor">
-                        </div>
-
-                        <div class="field">
-                            <label>KYC document type</label>
-
-                            <select name="kycType">
-                                <option>National ID</option>
-                                <option>Passport</option>
-                                <option>Driving licence</option>
-                                <option>Other accepted document</option>
-                            </select>
-                        </div>
-
-                        <div class="field">
-                            <label>Document reference (demo only)</label>
-
-                            <input
-                                name="kycRef"
-                                placeholder="Do not use real reference"
-                            >
-                        </div>
-
-                        <div class="field">
-                            <label>Identity document file</label>
-
-                            <input
-                                name="kycFile"
-                                type="file"
-                                accept=".pdf,.jpg,.jpeg,.png"
-                            >
-                        </div>
-
-                        <div class="field">
-                            <label>Proof of address / income file</label>
-
-                            <input
-                                name="supportFile"
-                                type="file"
-                                accept=".pdf,.jpg,.jpeg,.png"
-                            >
-                        </div>
-
-                    </div>
-
-                    <div class="field">
-                        <label>Collateral description</label>
-
-                        <textarea name="collateralDescription"></textarea>
-                    </div>
-
-                    <label
-                        style="font-size:.83rem;display:flex;gap:9px;align-items:flex-start"
-                    >
-                        <input
-                            type="checkbox"
-                            required
-                            style="margin-top:5px"
-                        >
-                        I confirm the information is accurate and consent to
-                        its review for this application. *
-                    </label>
-
-                    <p class="legal">
-                        Files remain local and are not uploaded. A live
-                        platform needs secure document storage, access
-                        controls and retention rules.
-                    </p>
-
-                </div>
-
-
-                <!-- SECTION 109.6: APPLICATION NAVIGATION -->
-
-                <div class="formnav">
-
-                    <button
-                        type="button"
-                        class="btn light"
-                        id="prev"
-                        onclick="move(-1)"
-                    >
-                        ← Back
-                    </button>
-
-                    <button
-                        type="button"
-                        class="btn primary"
-                        id="next"
-                        onclick="move(1)"
-                    >
-                        Next section →
-                    </button>
-
-                    <button
-                        class="btn primary hidden"
-                        id="submitapp"
-                    >
-                        Submit demo application
-                    </button>
-
-                </div>
-
-            </form>
-        </div>
-    </div>
-</div>
-
-
-<!-- =========================================================
      SECTION 110: CUSTOMER LOGIN AND DASHBOARD MODAL
 ========================================================= -->
 
@@ -8080,19 +6768,20 @@ section,
         <div class="modalbody" id="loginformview">
 
             <div class="note">
-                Demo sign-in only. Do not enter a real password; this form
-                does not authenticate accounts.
+                Sign in with the email address and password used to create your EMF account.
             </div>
 
             <form id="loginform">
 
                 <div class="field">
-                    <label>Email or phone</label>
+                    <label for="identity">Email address</label>
 
                     <input
                         required
+                        type="email"
+                        autocomplete="email"
                         id="identity"
-                        placeholder="demo@example.com"
+                        placeholder="you@example.com"
                     >
                 </div>
 
@@ -8102,12 +6791,12 @@ section,
                     <input
                         required
                         type="password"
-                        placeholder="Any demo password"
+                        placeholder="Enter your password"
                     >
                 </div>
 
                 <button class="btn primary" style="width:100%">
-                    Sign in to demo portal
+                    Sign in securely
                 </button>
 
             </form>
@@ -8128,7 +6817,7 @@ section,
                 <a
                     class="textlink"
                     href="#"
-                    onclick="event.preventDefault();closeModal('login');openModal('register')"
+                    onclick="event.preventDefault();closeModal('login');openModal('account')"
                 >
                     Start an application
                 </a>
@@ -8190,9 +6879,10 @@ section,
                     </div>
 
                     <button
+                        id="logout"
                         class="btn outline"
                         style="margin-top:12px;width:100%"
-                        onclick="logout()"
+                        onclick="logoutCustomer()"
                     >
                         Sign out
                     </button>
@@ -8209,7 +6899,7 @@ section,
                     </h3>
 
                     <p class="muted">
-                        Sample customer dashboard · Demo data only
+                        Customer account · Authenticated data only
                     </p>
 
                     <div id="dashcontent"></div>
@@ -8308,53 +6998,6 @@ section,
 </div>
 
 
-<!-- =========================================================
-     SECTION 113: CUSTOMER SUPPORT CHAT INTERFACE
-========================================================= -->
-
-<button class="chatlaunch" onclick="chatToggle()">
-    ☏ EMF Support Chat
-</button>
-
-<div class="chatpanel" id="chat">
-
-    <div class="chathead">
-
-        <div>
-            <b>EMF Support Assistant</b>
-            <br>
-            <small>Website demo assistant</small>
-        </div>
-
-        <button class="close" onclick="chatToggle(false)">
-            ✕
-        </button>
-
-    </div>
-
-    <div class="messages" id="messages">
-
-        <div class="bubble">
-            Hello! I can help with loan products, calculator, applications
-            and the customer portal. What would you like to know?
-        </div>
-
-    </div>
-
-    <form class="chatinput" id="chatform">
-
-        <input
-            id="chattext"
-            required
-            placeholder="Type your question..."
-        >
-
-        <button>Send</button>
-
-    </form>
-
-</div>
-
 <div class="toast" id="toast"></div>
 
 
@@ -8381,45 +7024,30 @@ function notify(s) {
 
 
 
-<!-- =========================================================
+/* =========================================================
      SECTION 115: CUSTOMER ACCOUNT AND AGREEMENT STATE
-========================================================= -->
+========================================================= */
 
-let emfAccountReady = false,
-    demoConsentRecord = null,
-    signatureDrawn = false;
+let emfAccountReady = false;
 
 
-<!-- =========================================================
+/* =========================================================
      SECTION 116: MODAL OPENING AND CLOSING FUNCTIONS
-========================================================= -->
+========================================================= */
 
 function openModal(id) {
 
-    if (id === 'apply' && !emfAccountReady) {
-        id = 'register';
-
-        notify(
-            'First agree to the terms, then create an account.'
-        );
+    if (id === 'apply') {
+        notify('Online loan applications are not enabled yet. Please contact EMF for the current application process.');
+        return;
     }
 
     if (id === 'productselector' && !emfAccountReady) {
-        id = 'register';
-
-        notify(
-            'Please agree to the conditions and create your account first.'
-        );
+        openModal('account');
+        notify('Create your customer account and sign in first.');
+        return;
     }
 
-    if (id === 'apply') {
-
-        const old = $('application').querySelector(
-            '.submission-result'
-        );
-
-        if (old) old.remove();
-    }
 
     $(id).classList.add('show');
 
@@ -8437,9 +7065,9 @@ function closeModal(id) {
 }
 
 
-<!-- =========================================================
+/* =========================================================
      SECTION 117: MODAL BACKDROP AND ESCAPE-KEY HANDLING
-========================================================= -->
+========================================================= */
 
 document.querySelectorAll('.backdrop').forEach(x =>
     x.addEventListener('click', e => {
@@ -8456,14 +7084,14 @@ document.addEventListener('keydown', e => {
             closeModal(x.id)
         );
 
-        chatToggle(false);
+
     }
 });
 
 
-<!-- =========================================================
+/* =========================================================
      SECTION 118: NAVIGATION AND FOOTER YEAR
-========================================================= -->
+========================================================= */
 
 $('menu').onclick = () =>
     $('links').classList.toggle('open');
@@ -8477,7 +7105,7 @@ document.querySelectorAll('#links a').forEach(a =>
 $('year').textContent = new Date().getFullYear();
 
 
-<!-- =========================================================
+/* =========================================================
      SECTION 119: SUPABASE INTEGRATION CONTRACT
 ========================================================= */
 
@@ -8489,9 +7117,9 @@ $('year').textContent = new Date().getFullYear();
 */
 
 
-<!-- =========================================================
+/* =========================================================
      SECTION 120: SUPABASE CONFIGURATION
-========================================================= -->
+========================================================= */
 
 const EMF_BACKEND = Object.freeze({
     provider: 'supabase',
@@ -8501,9 +7129,9 @@ const EMF_BACKEND = Object.freeze({
 });
 
 
-<!-- =========================================================
+/* =========================================================
      SECTION 121: RAILWAY BACKEND API CONFIGURATION
-========================================================= -->
+========================================================= */
 
 const EMF_API_BASE =
     'https://emmanuel-financial-group-backend-production-d168.up.railway.app';
@@ -8513,45 +7141,13 @@ let emfAccessToken = '';
 let emfCustomer = null;
 
 
-<!-- =========================================================
+/* =========================================================
      SECTION 122: EMF DATA INTEGRATION CONTRACT
-========================================================= -->
+========================================================= */
 
 const EMF_DATA_CONTRACT = Object.freeze({
-
-    auth: [
-        'signUp',
-        'signInWithPassword',
-        'resetPasswordForEmail',
-        'signOut'
-    ],
-
-    customerTables: [
-        'profiles',
-        'loan_applications',
-        'loans',
-        'loan_payments',
-        'transactions',
-        'savings_accounts',
-        'support_tickets',
-        'support_messages',
-        'notifications',
-        'site_content',
-        'site_settings'
-    ],
-
-    storageBuckets: [
-        'kyc-documents-private'
-    ],
-
-    rules: [
-        'RLS enabled on all customer tables',
-        'private KYC bucket',
-        'customer can access only own records',
-        'staff permissions checked server-side',
-        'financial balances never trusted from browser'
-    ]
-
+    supportedApiEndpoints: ['/api/health', '/api/health/supabase', '/api/auth/register', '/api/auth/login', '/api/customer/me'],
+    unsupportedUntilBackendRoutesExist: ['loan applications', 'loans', 'repayments', 'savings', 'transactions', 'support tickets', 'password recovery']
 });
 
 /* =========================================================
@@ -8569,10 +7165,7 @@ function openPasswordReset() {
 
 $('resetform').onsubmit = e => {
     e.preventDefault();
-
-    notify(
-        'Password recovery is not connected yet. No email was sent.'
-    );
+    notify('Password recovery is not available yet. No reset email was sent. Please contact EMF support.');
 };
 
 
@@ -8731,718 +7324,74 @@ function calc() {
 calc();
 
 
-/* =========================================================
-   SECTION 129: LOAN PRODUCT SELECTION
-========================================================= */
-
-function chooseProduct(name) {
-
-    if (!demoAccountCreated) {
-
-        openModal('register');
-
-        notify(
-            'First agree to conditions and create an account.'
-        );
-
-        return;
-    }
-
-    openModal('productselector');
-}
 
 
 /* =========================================================
-   SECTION 130: APPLICATION STEP INITIALIZATION
-========================================================= */
-
-let step = 0,
-    appsteps = [...document.querySelectorAll('.appstep')];
-
-
-/* =========================================================
-   SECTION 131: UPDATE APPLICATION STEP DISPLAY
-========================================================= */
-
-function updateStep() {
-
-    appsteps.forEach((x, i) =>
-        x.classList.toggle('active', i === step)
-    );
-
-    [...$('stepper').children].forEach((x, i) =>
-        x.classList.toggle('active', i <= step)
-    );
-
-    $('prev').classList.toggle('hidden', step === 0);
-
-    $('next').classList.toggle(
-        'hidden',
-        step === appsteps.length - 1
-    );
-
-    $('submitapp').classList.toggle(
-        'hidden',
-        step !== appsteps.length - 1
-    );
-}
-
-
-/* =========================================================
-   SECTION 132: MOVE BETWEEN APPLICATION STEPS
-========================================================= */
-
-function move(delta) {
-
-    if (delta > 0) {
-
-        for (
-            let f of appsteps[step].querySelectorAll(
-                'input,select,textarea'
-            )
-        ) {
-
-            if (f.required && !f.checkValidity()) {
-                f.reportValidity();
-                return;
-            }
-
-        }
-    }
-
-    step = Math.max(
-        0,
-        Math.min(appsteps.length - 1, step + delta)
-    );
-
-    updateStep();
-}
-
-
-/* =========================================================
-   SECTION 133: APPLICANT TYPE AND PRODUCT SELECTION
-========================================================= */
-
-$('applicantType').onchange = e => {
-
-    if (e.target.value === 'Business') {
-
-        $('appProduct').value = 'Business Loan';
-
-    } else if ($('appProduct').value === 'Business Loan') {
-
-        $('appProduct').value = 'Personal Loan';
-
-    }
-
-};
-
-
-/* =========================================================
-   SECTION 134: DEMO APPLICATION SUBMISSION
-========================================================= */
-
-$('application').onsubmit = e => {
-
-    e.preventDefault();
-
-    const reference =
-        'EMF-DEMO-' +
-        new Date().getFullYear() +
-        '-' +
-        Math.random().toString(36).slice(2, 8).toUpperCase();
-
-    notify(
-        'Demo application check passed. Reference ' +
-        reference +
-        '. Nothing was transmitted or stored.'
-    );
-
-    const note = document.createElement('p');
-
-    note.className = 'note';
-
-    note.textContent =
-        'Demo reference: ' +
-        reference +
-        '. This is not a submitted application. Your details and selected files were not sent to EMF.';
-
-    const body = $('application').querySelector('.modalbody');
-
-    if (body) {
-
-        const old = body.querySelector('.submission-result');
-
-        if (old) old.remove();
-
-        note.classList.add('submission-result');
-
-        body.prepend(note);
-    }
-
-    e.target.reset();
-
-    step = 0;
-
-    updateStep();
-
-};
-
-
-/* =========================================================
-   SECTION 135: SIGNATURE PAD INITIALIZATION
-========================================================= */
-
-const sigCanvas = $('signaturePad'),
-    sigCtx = sigCanvas.getContext('2d');
-
-
-/* =========================================================
-   SECTION 136: RESIZE SIGNATURE PAD
-========================================================= */
-
-function resizeSignaturePad() {
-
-    const r = sigCanvas.getBoundingClientRect(),
-        ratio = window.devicePixelRatio || 1;
-
-    sigCanvas.width = Math.max(
-        1,
-        Math.round(r.width * ratio)
-    );
-
-    sigCanvas.height = Math.max(
-        1,
-        Math.round(r.height * ratio)
-    );
-
-    sigCtx.setTransform(ratio, 0, 0, ratio, 0, 0);
-
-    sigCtx.strokeStyle = '#06152f';
-    sigCtx.lineWidth = 2.2;
-    sigCtx.lineCap = 'round';
-    sigCtx.lineJoin = 'round';
-}
-
-
-/* =========================================================
-   SECTION 137: CLEAR SIGNATURE
-========================================================= */
-
-function clearSignature() {
-
-    sigCtx.clearRect(
-        0,
-        0,
-        sigCanvas.width,
-        sigCanvas.height
-    );
-
-    signatureDrawn = false;
-}
-
-
-/* =========================================================
-   SECTION 138: PRESERVE SIGNATURE WHEN RESIZING
-========================================================= */
-
-window.addEventListener('resize', () => {
-
-    const old = signatureDrawn
-        ? sigCanvas.toDataURL()
-        : null;
-
-    resizeSignaturePad();
-
-    if (old) {
-
-        const im = new Image();
-
-        im.onload = () => {
-            sigCtx.drawImage(
-                im,
-                0,
-                0,
-                sigCanvas.clientWidth,
-                sigCanvas.clientHeight
-            );
-        };
-
-        im.src = old;
-    }
-
-});
-
-
-resizeSignaturePad();
-
-
-/* =========================================================
-   SECTION 139: SIGNATURE DRAWING EVENTS
-========================================================= */
-
-let drawing = false;
-
-
-function sigPoint(e) {
-
-    const r = sigCanvas.getBoundingClientRect();
-
-    return {
-        x: e.clientX - r.left,
-        y: e.clientY - r.top
-    };
-
-}
-
-
-sigCanvas.addEventListener('pointerdown', e => {
-
-    drawing = true;
-
-    sigCanvas.setPointerCapture(e.pointerId);
-
-    const p = sigPoint(e);
-
-    sigCtx.beginPath();
-
-    sigCtx.moveTo(p.x, p.y);
-
-    signatureDrawn = true;
-
-    e.preventDefault();
-
-});
-
-
-sigCanvas.addEventListener('pointermove', e => {
-
-    if (!drawing) return;
-
-    const p = sigPoint(e);
-
-    sigCtx.lineTo(p.x, p.y);
-
-    sigCtx.stroke();
-
-    e.preventDefault();
-
-});
-
-
-[
-    'pointerup',
-    'pointercancel',
-    'lostpointercapture'
-].forEach(ev =>
-    sigCanvas.addEventListener(ev, () => drawing = false)
-);
-
-
-$('clearSignature').onclick = clearSignature;
-
-
-/* =========================================================
-   SECTION 140: AGREEMENT VALIDATION AND CONTINUATION
-========================================================= */
-
-$('agreeContinue').onclick = () => {
-
-    if (!$('agreementFullName').value.trim()) {
-
-        $('agreementFullName').reportValidity();
-
-        return;
-    }
-
-    if (!signatureDrawn) {
-
-        notify(
-            'Please draw your handwritten signature in the signature pad.'
-        );
-
-        return;
-    }
-
-    if (
-        !$('acceptTerms').checked ||
-        !$('acceptPrivacy').checked ||
-        !$('confirmSignature').checked
-    ) {
-
-        notify('Please tick all required agreement boxes.');
-
-        return;
-    }
-
-    demoConsentRecord = {
-
-        terms_version: 'EMF-LOAN-TERMS-DRAFT-1.0',
-
-        accepted_at: new Date().toISOString(),
-
-        full_name: $('agreementFullName').value.trim(),
-
-        signature_image: sigCanvas.toDataURL('image/png'),
-
-        terms_accepted: true,
-
-        privacy_acknowledged: true
-
-    };
-
-    closeModal('register');
-
-    openModal('account');
-
-};
-
-
-/* =========================================================
-   SECTION 141: CUSTOMER ACCOUNT REGISTRATION
-========================================================= */
-
-$('accountform').onsubmit = async e => {
-
-    e.preventDefault();
-
-    const form = $('accountform');
-
-    if (!form.reportValidity()) return;
-
-
-    /* SECTION 141.1: READ AND NORMALIZE FORM VALUES */
-
-    const agreementName =
-        $('agreementFullName').value.trim();
-
-    const accountName =
-        $('regFullName').value.trim();
-
-    const email =
-        $('regEmail').value.trim().toLowerCase();
-
-    const phone =
-        $('regPhone').value.trim();
-
-
-    /* SECTION 141.2: READ PASSWORD */
-
-    const passwordField =
-        form.querySelector('input[type="password"]');
-
-    const password = passwordField
-        ? passwordField.value
-        : '';
-
-
-    /* SECTION 141.3: VALIDATE AGREEMENT NAME */
-
-    if (
-        agreementName.toLocaleLowerCase() !==
-        accountName.toLocaleLowerCase()
-    ) {
-
-        notify(
-            'Please use the same full legal name as the one signed in the agreement.'
-        );
-
-        $('regFullName').focus();
-
-        return;
-    }
-
-
-    /* SECTION 141.4: VALIDATE PASSWORD */
-
-    if (!password) {
-
-        notify('Please enter your account password.');
-
-        if (passwordField) passwordField.focus();
-
-        return;
-    }
-
-
-    /* SECTION 141.5: DISABLE SUBMIT BUTTON */
-
-    const submitButton = form.querySelector(
-        'button[type="submit"], input[type="submit"]'
-    );
-
-    if (submitButton) {
-        submitButton.disabled = true;
-    }
-
-
-    /* SECTION 141.6: SEND REGISTRATION REQUEST TO RAILWAY */
-
-    try {
-
-        const response = await fetch(
-            EMF_API_BASE + '/api/auth/register',
-            {
-                method: 'POST',
-
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-
-                body: JSON.stringify({
-                    full_name: accountName,
-                    email: email,
-                    phone: phone,
-                    password: password
-                })
-            }
-        );
-
-
-        /* SECTION 141.7: PROCESS BACKEND RESPONSE */
-
-        const result = await response.json();
-
-        if (!response.ok || !result.success) {
-
-            throw new Error(
-                result.message ||
-                'Registration failed. Please try again.'
-            );
-
-        }
-
-
-        /* SECTION 141.8: UPDATE REGISTRATION STATE */
-
-        demoAccountCreated = true;
-
-        demoConsentRecord = {
-            ...demoConsentRecord,
-
-            account_full_name: accountName,
-
-            email: email,
-
-            phone: phone,
-
-            account_created_at: new Date().toISOString()
-        };
-
-
-        /* SECTION 141.9: SHOW RESULT TO CUSTOMER */
-
-        closeModal('account');
-
-        if (result.requiresEmailVerification) {
-
-            notify(
-                result.message ||
-                'Registration successful. Check your email to verify your account before logging in.'
-            );
-
-            openModal('login');
-
-        } else {
-
-            notify('Your account was registered successfully.');
-
-            openModal('login');
-
-        }
-
-        form.reset();
-
-
-    } catch (error) {
-
-        /* SECTION 141.10: HANDLE REGISTRATION ERRORS */
-
-        console.error('EMF registration error:', error);
-
-        notify(
-            error.message ||
-            'Unable to connect to EMF. Please check your internet connection and try again.'
-        );
-
-
-    } finally {
-
-        /* SECTION 141.11: RE-ENABLE SUBMIT BUTTON */
-
-        if (submitButton) {
-            submitButton.disabled = false;
-        }
-
-    }
-
-};
-/* =========================================================
-   SECTION 142: START LOAN APPLICATION
+   SECTION 130: ONLINE LOAN APPLICATION AVAILABILITY
 ========================================================= */
 
 function startLoanApplication(name) {
-    if (!demoAccountCreated) {
-        notify('Create your account first.');
-        return;
-    }
-
     closeModal('productselector');
-
-    $('appProduct').value = name;
-    $('loanType').value = name;
-
-    $('applicantType').value =
-        name === 'Business Loan'
-            ? 'Business'
-            : 'Individual / Personal';
-
-    calc();
-
-    step = 0;
-    updateStep();
-
-    openModal('apply');
+    notify('Online ' + name + ' applications are not enabled yet. The backend has no application-submission endpoint, so no personal information has been collected or sent. Please contact EMF for the current application process.');
 }
 
-
-/* =========================================================
-   SECTION 143: SYNC APPLICATION AMOUNT
-========================================================= */
-
-$('appAmount').oninput = e => {
-    if (e.target.value) {
-        $('amount').value = e.target.value;
+function chooseProduct(name) {
+    if (!emfAccountReady) {
+        openModal('account');
+        notify('Create your customer account and sign in first.');
+        return;
     }
-};
-
-
+    openModal('productselector');
+}
 
 /* =========================================================
    SECTION 144: CUSTOMER DASHBOARD PAGE CONTENT
    Live data will be loaded from the EMF backend.
 ========================================================= */
 
-function emfUnavailablePage(title, message) {
-
-    return `
-        <div class="panel">
-
-            <div class="portal-panelhead">
-                <div>
-                    <h4>${title}</h4>
-                    <p class="muted">
-                        Your EMF customer portal
-                    </p>
-                </div>
-
-                <span class="portal-chip">
-                    LIVE DATA PENDING
-                </span>
-            </div>
-
-            <div class="portal-notice">
-                <b>Customer information is not available yet</b>
-
-                <p>${message}</p>
-
-                <p>
-                    No sample balances, transactions,
-                    applications or payment amounts are displayed.
-                </p>
-            </div>
-
-        </div>
-    `;
+function emfStatusPage(title, message) {
+    return `<div class="panel"><div class="portal-panelhead"><div><h4>${escapeHtml(title)}</h4><p class="muted">EMF customer portal</p></div></div><div class="portal-notice"><b>Service not available</b><p>${escapeHtml(message)}</p></div></div>`;
 }
 
+function emfProfilePage(customer) {
+    const fields = [
+        ['Full name', customer.full_name],
+        ['Email', customer.email],
+        ['Phone', customer.phone],
+        ['Account number', customer.account_number],
+        ['Account status', customer.account_status],
+        ['Address', customer.address],
+        ['Customer since', customer.created_at ? new Date(customer.created_at).toLocaleDateString('en-GB') : '']
+    ];
+    return `<div class="panel"><div class="portal-panelhead"><div><h4>My Profile</h4><p class="muted">Details returned by the authenticated EMF backend</p></div></div><div class="profile-fields">${fields.map(([label,value]) => `<div class="field"><label>${label}</label><div class="profile-value">${escapeHtml(value || 'Not provided')}</div></div>`).join('')}</div></div>`;
+}
+
+function escapeHtml(value) {
+    return String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+}
+
+async function loadCustomerProfile() {
+    const response = await fetch(EMF_API_BASE + '/api/customer/me', {
+        headers: { Authorization: 'Bearer ' + emfAccessToken }
+    });
+    const result = await response.json().catch(() => ({}));
+    if (!response.ok || !result.success || !result.customer) {
+        if (response.status === 401) logoutCustomer(false);
+        throw new Error(result.message || 'Unable to load your customer profile.');
+    }
+    emfCustomer = result.customer;
+    return result.customer;
+}
 
 const pages = {
-
-    /* SECTION 144.1: OVERVIEW */
-
-    'Overview': emfUnavailablePage(
-        'Account Overview',
-        'Your account summary will appear here once the authenticated customer-data endpoint is connected.'
-    ),
-
-    /* SECTION 144.2: MY PROFILE */
-
-    'My Profile': emfUnavailablePage(
-        'My Profile',
-        'Your verified profile details will appear here after the customer profile endpoint is connected.'
-    ),
-
-    /* SECTION 144.3: MY APPLICATIONS */
-
-    'My Applications': emfUnavailablePage(
-        'My Loan Applications',
-        'Your actual loan applications and their current statuses will appear here when the application endpoint is connected.'
-    ),
-
-    /* SECTION 144.4: MY LOANS */
-
-    'My Loans': emfUnavailablePage(
-        'My Loans',
-        'Your actual loan accounts, approved amounts and outstanding balances will appear here when the loan endpoint is connected.'
-    ),
-
-    /* SECTION 144.5: REPAYMENTS */
-
-    'Repayments': emfUnavailablePage(
-        'Repayments',
-        'Your verified repayment schedule and payment history will appear here when the repayment endpoint is connected.'
-    ),
-
-    /* SECTION 144.6: SAVINGS */
-
-    'Savings': emfUnavailablePage(
-        'Savings',
-        'Your actual savings balance and activity will appear here when the savings endpoints are connected.'
-    ),
-
-    /* SECTION 144.7: TRANSACTIONS */
-
-    'Transactions': emfUnavailablePage(
-        'Transaction History',
-        'Your verified deposits, withdrawals, transfers and other transactions will appear here when the transaction endpoint is connected.'
-    ),
-
-    /* SECTION 144.8: SUPPORT */
-
-    'Support': `
-        <div class="panel">
-
-            <div class="portal-panelhead">
-                <div>
-                    <h4>Customer Support</h4>
-
-                    <p class="muted">
-                        Get help with your EMF account.
-                    </p>
-                </div>
-            </div>
-
-            <div class="portal-notice">
-                <b>Support services</b>
-
-                <p>
-                    You can use the website contact section
-                    to find the current support options.
-                    Live customer-support messaging has not
-                    yet been verified as backend-connected.
-                </p>
-            </div>
-
-            <button
-                class="btn primary"
-                onclick="closeModal('login'); document.getElementById('contact').scrollIntoView({behavior:'smooth'});"
-            >
-                Open Contact Section
-            </button>
-
-        </div>
-    `
+    'Overview': null,
+    'My Profile': null,
+    'My Applications': emfStatusPage('My Loan Applications', 'The current EMF backend does not yet provide a customer loan-application endpoint.'),
+    'My Loans': emfStatusPage('My Loans', 'The current EMF backend does not yet provide a customer loans endpoint.'),
+    'Repayments': emfStatusPage('Repayments', 'The current EMF backend does not yet provide repayment schedules or payment history.'),
+    'Savings': emfStatusPage('Savings', 'The current EMF backend does not yet provide savings-account data.'),
+    'Transactions': emfStatusPage('Transactions', 'The current EMF backend does not yet provide customer transaction history.'),
+    'Support': emfStatusPage('Customer Support', 'A secure support-ticket endpoint is not available yet. Use the official contact details published by EMF.')
 };
 
 
@@ -9451,16 +7400,25 @@ const pages = {
    SECTION 145: DISPLAY CUSTOMER DASHBOARD PAGE
 ========================================================= */
 
-function page(name) {
+async function page(name) {
     $('pagetitle').textContent = name;
-    $('dashcontent').innerHTML = pages[name] || pages.Overview;
-
-    document.querySelectorAll('[data-page]').forEach(b =>
-        b.classList.toggle(
-            'active',
-            b.dataset.page === name
-        )
-    );
+    document.querySelectorAll('[data-page]').forEach(b => b.classList.toggle('active', b.dataset.page === name));
+    const host = $('dashcontent');
+    host.innerHTML = '<div class="panel"><p>Loading your EMF account…</p></div>';
+    if (name === 'Overview' || name === 'My Profile') {
+        try {
+            const customer = await loadCustomerProfile();
+            if (name === 'My Profile') {
+                host.innerHTML = emfProfilePage(customer);
+            } else {
+                host.innerHTML = `<div class="panel"><div class="portal-panelhead"><div><h4>Account Overview</h4><p class="muted">Live profile from EMF</p></div><span class="portal-chip">${escapeHtml(customer.account_status || 'STATUS NOT SET')}</span></div><div class="profile-fields"><div class="field"><label>Customer</label><div class="profile-value">${escapeHtml(customer.full_name || 'Customer')}</div></div><div class="field"><label>Email</label><div class="profile-value">${escapeHtml(customer.email || 'Not provided')}</div></div><div class="field"><label>Account number</label><div class="profile-value">${escapeHtml(customer.account_number || 'Not assigned')}</div></div></div><p class="muted">Loan, repayment, savings and transaction records will appear here after their customer API endpoints are implemented.</p></div>`;
+            }
+        } catch (error) {
+            host.innerHTML = emfStatusPage('Unable to load account data', error.message);
+        }
+    } else {
+        host.innerHTML = pages[name] || pages.Overview || emfStatusPage(name, 'This section is not available.');
+    }
 }
 
 
@@ -9588,390 +7546,21 @@ $('loginform').onsubmit = async e => {
    SECTION 148: CUSTOMER LOGOUT
 ========================================================= */
 
-function logout() {
+function logoutCustomer(showNotice = true) {
     emfAccessToken = '';
     emfCustomer = null;
-
-    $('loginformview').classList.remove('hidden');
+    emfAccountReady = false;
     $('dash').classList.remove('show');
-
+    $('loginformview').classList.remove('hidden');
     $('loginform').reset();
-
     closeModal('login');
-
-    notify('You have been logged out.');
-}
-<script>
-
-/* =========================================================
-   SECTION 149: FAQ ACCORDION
-========================================================= */
-
-document.querySelectorAll('.faq button').forEach(b =>
-    b.onclick = () =>
-        b.parentElement.classList.toggle('open')
-);
-
-
-/* =========================================================
-   SECTION 150: FINANCIAL EDUCATION BLOG CONTENT
-========================================================= */
-
-const blogs = [
-
-    [
-        'FINANCIAL LITERACY',
-        'Small steps today can strengthen your financial future',
-        'Start by setting a clear, realistic money goal. Write down your income and regular expenses, separate needs from wants, and review your budget often. Small, consistent steps can help you make more informed financial decisions.'
-    ],
-
-    [
-        'LOAN APPLICATION GUIDE',
-        'How to complete a loan application form',
-        'Read each question carefully and enter accurate, up-to-date information. Check your full name, contact details, income, employment or business details, requested amount and purpose before submitting. Do not leave required fields blank; if a question is unclear, ask EMF for guidance rather than guessing. Submitting a form does not automatically mean a loan is approved.'
-    ],
-
-    [
-        'UNDERSTANDING AGREEMENTS',
-        'Read the terms before you sign',
-        'Before signing, make sure you understand the amount borrowed, interest calculation, fees, repayment amount and dates, loan duration, late-payment consequences and any security or guarantor obligations. Ask for clarification about anything you do not understand and keep a copy of the agreement for your records.'
-    ],
-
-    [
-        'BORROW RESPONSIBLY',
-        'Check whether repayments fit your budget',
-        'Compare the expected repayment with your regular income and essential expenses. Leave room for food, housing, transport, school needs and unexpected costs. Borrow only an amount you reasonably expect to repay. A calculator gives an estimate; confirm the actual terms and charges with the provider before accepting an offer.'
-    ],
-
-    [
-        'DOCUMENTS & VERIFICATION',
-        'Why financial providers may request documents',
-        'Identification and supporting documents may be requested to verify your identity, contact information, income or business activity and to assess an application. Provide genuine, readable documents through the official submission channel only. Never send passwords or one-time security codes as proof of identity.'
-    ],
-
-    [
-        'BUSINESS GROWTH',
-        'Prepare your business before seeking finance',
-        'Keep clear records of sales, operating costs, stock, debts and cash flow. Estimate how much money the business needs and explain how it will be used and repaid. Use realistic figures and make sure business repayments will not put essential operating expenses at risk.'
-    ],
-
-    [
-        'SAVINGS HABITS',
-        'Make room for unexpected expenses',
-        'Choose a savings target that fits your income, even if you begin with a small amount. Keep track of spending, save regularly when possible and build a reserve for emergencies such as repairs or urgent family needs. Review the target whenever your circumstances change.'
-    ],
-
-    [
-        'PRIVACY & FRAUD PREVENTION',
-        'Keep your personal and financial information safe',
-        'Use strong, unique passwords and never share your password, PIN or one-time code. Check that you are using EMF’s official contact and payment channels before sending information or money. Be cautious of anyone promising guaranteed approval in exchange for an unofficial fee, and report suspicious requests through verified support channels.'
-    ],
-
-    [
-        'PAYMENTS & RECORDS',
-        'Keep proof of every payment',
-        'Before paying, confirm the amount, due date, recipient and official payment instructions. Keep receipts, transaction IDs and messages confirming payment. If a payment appears delayed or incorrect, contact official support with the transaction reference; do not pay again until the issue has been checked.'
-    ]
-
-];
-
-
-/* =========================================================
-   SECTION 151: BLOG SLIDER INITIALIZATION
-========================================================= */
-
-let bi = 0;
-
-
-/* =========================================================
-   SECTION 152: DISPLAY BLOG SLIDE
-========================================================= */
-
-function blog(d) {
-
-    bi = (bi + d + blogs.length) % blogs.length;
-
-    $('blogtag').textContent = blogs[bi][0];
-    $('blogtitle').textContent = blogs[bi][1];
-    $('blogdesc').textContent = blogs[bi][2];
-
-    const pics = [
-        'photo-1531123897727-8f129e1688ce',
-        'photo-1521737711867-e3b97375f902',
-        'photo-1542601906990-b4d3fb778b09',
-        'photo-1516321318423-f06f85e504b3'
-    ];
-
-    const el = document.querySelector('.featureblog');
-
-    if (el) {
-        el.style.backgroundImage =
-            'linear-gradient(0deg,rgba(2,8,20,.96),rgba(2,8,20,.16) 82%),url(https://images.unsplash.com/' +
-            pics[bi] +
-            '?auto=format&fit=crop&w=1500&q=85)';
-    }
+    if (showNotice) notify('You have signed out.');
 }
 
+$('logout').onclick = () => logoutCustomer(true);
 
-/* =========================================================
-   SECTION 153: AUTOMATIC BLOG ROTATION
-========================================================= */
 
-setInterval(() => blog(1), 8500);
 
-
-/* =========================================================
-   SECTION 154: ANNOUNCEMENT TICKER
-========================================================= */
-
-let ti = 0;
-
-setInterval(() => {
-
-    const t = [
-        'EMF UPDATE ✦ Explore loan products ✦ Use the repayment calculator ✦',
-        'CUSTOMER TIP ✦ Protect your password and never share a one-time code ✦',
-        'BUSINESS FINANCE ✦ Prepare accurate records before applying ✦',
-        'FINANCIAL LITERACY ✦ Review your financial goals regularly ✦'
-    ];
-
-    $('ticker').textContent = t[++ti % t.length];
-
-}, 7000);
-
-
-/* =========================================================
-   SECTION 155: LEGAL INFORMATION MODAL
-========================================================= */
-
-function legal(title) {
-
-    $('legaltitle').textContent = title;
-
-    const t = {
-
-        'Privacy notice':
-            'DRAFT: Before launch, publish a complete Privacy Notice explaining what personal data is collected, purposes and legal bases, recipients, retention, security, transfers, customer rights and how to contact EMF. Have it reviewed for applicable Malawi law.',
-
-        'Terms of use':
-            'Replace this placeholder with approved terms describing service scope, eligibility, fees, digital access and dispute handling.',
-
-        'Responsible lending':
-            'Explain affordability checks, transparent pricing, customer rights, complaints and how repayment difficulties can be raised.'
-
-    };
-
-    $('legaltext').textContent =
-        t[title] ||
-        'Complete and review this information before launch.';
-
-    openModal('legalmodal');
-}
-
-
-/* =========================================================
-   SECTION 156: SUPPORT CHAT TOGGLE
-========================================================= */
-
-function chatToggle(force) {
-
-    $('chat').classList.toggle(
-        'show',
-        typeof force === 'boolean'
-            ? force
-            : !$('chat').classList.contains('show')
-    );
-
-}
-
-
-/* =========================================================
-   SECTION 157: SUPPORT CHAT RESPONSE LOGIC
-========================================================= */
-
-function reply(q) {
-
-    q = q.toLowerCase();
-
-    if (q.includes('loan') || q.includes('apply')) {
-        return 'Explore the Loan Products section, estimate repayments and start the guided application. Approval is not guaranteed.';
-    }
-
-    if (
-        q.includes('calcul') ||
-        q.includes('interest') ||
-        q.includes('repay')
-    ) {
-        return 'The calculator uses illustrative flat interest: principal × monthly rate × term. It displays a dated schedule. Actual fees and terms may differ.';
-    }
-
-    if (q.includes('business')) {
-        return 'For business finance, prepare registration, ownership, location, turnover, expenses, purpose and supporting records.';
-    }
-
-    if (
-        q.includes('login') ||
-        q.includes('portal') ||
-        q.includes('password')
-    ) {
-        return 'Customer Dashboard Login opens sample data only. Real sign-in needs secure backend authentication.';
-    }
-
-    if (
-        q.includes('document') ||
-        q.includes('kyc') ||
-        q.includes('id')
-    ) {
-        return 'Requested documents may include identity, proof of address, income/business records and collateral or guarantor details.';
-    }
-
-    if (
-        q.includes('contact') ||
-        q.includes('support')
-    ) {
-        return 'Use the Contact section to prepare an enquiry. Connect official contact details and a live ticket service before publishing.';
-    }
-
-    return 'I can help with loans, repayment estimates, applications, the customer portal and support. What would you like to explore?';
-
-}
-
-
-/* =========================================================
-   SECTION 158: SUPPORT CHAT FORM
-========================================================= */
-
-$('chatform').onsubmit = e => {
-
-    e.preventDefault();
-
-    let q = $('chattext').value.trim();
-
-    if (!q) return;
-
-    let u = document.createElement('div');
-
-    u.className = 'bubble user';
-    u.textContent = q;
-
-    $('messages').appendChild(u);
-
-    let a = document.createElement('div');
-
-    a.className = 'bubble';
-    a.textContent = reply(q);
-
-    $('messages').appendChild(a);
-
-    $('chattext').value = '';
-
-    $('messages').scrollTop =
-        $('messages').scrollHeight;
-
-};
-
-
-/* =========================================================
-   SECTION 159: CONTACT FORM SUBMISSION
-========================================================= */
-
-$('contactform').onsubmit = e => {
-
-    e.preventDefault();
-
-    notify(
-        'Form validated. Message not sent: support backend is not connected.'
-    );
-
-};
-
-
-/* =========================================================
-   SECTION 160: REGISTRATION AGREEMENT SCROLL SETUP
-========================================================= */
-
-// When the customer finishes reading the terms,
-// move the agreement form into view.
-
-(function setupAgreementScroll() {
-
-    const terms =
-        document.querySelector('#register .termsbox');
-
-    const nameField =
-        document.getElementById('agreementFullName');
-
-    if (!terms || !nameField) return;
-
-    let movedForCurrentRead = false;
-
-    terms.addEventListener('scroll', () => {
-
-        const atBottom =
-            terms.scrollTop + terms.clientHeight >=
-            terms.scrollHeight - 12;
-
-        if (atBottom && !movedForCurrentRead) {
-
-            movedForCurrentRead = true;
-
-            window.setTimeout(() => {
-
-                const body =
-                    document.querySelector('#register .modalbody');
-
-                const target =
-                    nameField.closest('.signature-fields') ||
-                    nameField;
-
-                if (body && target) {
-
-                    const bodyRect =
-                        body.getBoundingClientRect();
-
-                    const targetRect =
-                        target.getBoundingClientRect();
-
-                    if (
-                        targetRect.bottom > bodyRect.bottom ||
-                        targetRect.top < bodyRect.top
-                    ) {
-
-                        body.scrollBy({
-                            top:
-                                targetRect.top -
-                                bodyRect.top -
-                                12,
-                            behavior: 'smooth'
-                        });
-
-                    }
-
-                }
-
-            }, 120);
-
-        }
-
-    }, { passive: true });
-
-
-    /* -----------------------------------------------------
-       SECTION 160.1: RESET SCROLL STATE WHEN TERMS REOPEN
-    ----------------------------------------------------- */
-
-    terms.addEventListener('scroll', () => {
-
-        if (
-            terms.scrollTop + terms.clientHeight <
-            terms.scrollHeight - 30
-        ) {
-            movedForCurrentRead = false;
-        }
-
-    }, { passive: true });
-
-})();
 
 </script>
 <!-- =========================================================
@@ -10277,13 +7866,6 @@ $('contactform').onsubmit = e => {
 
     .signature-fields canvas,
     .signature-pad canvas,
-    canvas#signaturePad {
-        background: #dbe8f3 !important;
-
-        border: 2px solid #D4AF37 !important;
-
-        border-radius: 10px;
-    }
 
 
     /* ---------------------------------------------------------
@@ -11763,11 +9345,6 @@ $('contactform').onsubmit = e => {
     }
 
     /* Keep the drawn signature pad white and legible. File inputs remain usable. */
-
-    #signaturePad {
-        background: #fff !important;
-        border: 1px solid #d4af37 !important;
-    }
 
     input[type="file"] {
         color: #172538 !important;
